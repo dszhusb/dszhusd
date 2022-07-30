@@ -35,16 +35,16 @@
     //TOGGLING FILTERS
     function toggleFilters(n) {
         if ($cPage === 0) {
-            // for (let i = 0; i < 3; i++) { //BUTTON FILTERS
-            //     if (i == n) {
-            //         $filters[i] = true;
-            //     } else {
-            //         $filters[i] = false;
-            //     }
-            // }
-            if ($cPage === 0) {
-                $filters[n] = !$filters[n];
+            for (let i = 0; i < 3; i++) { //BUTTON FILTERS
+                if (i == n) {
+                    $filters[i] = true;
+                } else {
+                    $filters[i] = false;
+                }
             }
+            // if ($cPage === 0) {
+            //     $filters[n] = !$filters[n];
+            // }
         }
     }
 
@@ -77,12 +77,21 @@
     </div>
     <!-- FILTERS -->
     <div class="navBar">
+        {#if $fNotAll}
+        <button
+            on:click={AllProjects}
+            style:background-color={$cPage != 1 ? "#373737" : "#d9d9d9"}
+            style:color={$cPage != 1 ? "white" : "black"}
+            class="section">ALL WORK</button
+        >
+        {:else}
         <button
             on:click={AllProjects}
             style:background-color={$cPage != 1 ? "#373737" : "#d9d9d9"}
             style:color={$cPage != 1 ? "white" : "black"}
             class="section">WORK</button
         >
+        {/if}
         {#if $cPage == 0}
             <div class="filter">
                 {#each fList as fil}
