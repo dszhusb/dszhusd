@@ -73,7 +73,7 @@ export let projects = [
 //Project Contents
 export const projectContent = writable([
     { //TOBI
-        pDescription: "TOBI IS an electronic organism that lives and breathes the electronic signals in the environment around it.",
+        pDescription: "TOBI: an electronic organism that lives and breathes the electronic signals in its environment",
         pBlurbs: [
             "Concept Development, Prototyping",
             "N/A",

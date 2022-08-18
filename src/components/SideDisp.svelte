@@ -2,6 +2,8 @@
     export let pName;
     import { cPage, hIcon, hColor } from "../store.js";
     import Hoverable from "./Hoverable.svelte";
+    import { elasticOut } from "svelte/easing";
+    import { fade } from "svelte/transition";
 
     $hIcon = parseInt(Math.random(23));
     export function resetIcon() {
@@ -15,11 +17,23 @@
     function switchPage(n) {
         cPage.set(n);
     }
+
+    function jiggle(node, { duration }) {
+        return {
+            duration,
+            css: (t) => {
+                const eased = elasticOut(t);
+
+                return `
+                    transform: rotate(${eased * t}deg);`;
+            },
+        };
+    }
 </script>
 
 <main>
     <Hoverable let:hovering={active}>
-        <div class="back" class:active on:click={() => switchPage(0)}>
+        <div class="back" class:active on:click={() => switchPage(0)} transition:fade>
             {#if active}
                 <div class="backFill" style="background-color: {$hColor}" />
             {:else}

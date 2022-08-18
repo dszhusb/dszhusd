@@ -2,6 +2,8 @@
 <script>
     //IMPORT DEPENDECIES
     import NavIcon from "./NavIcon.svelte";
+    import { crossfade } from "svelte/transition";
+    import { quintOut } from "svelte/easing";
     import {
         cPage,
         filters,
@@ -35,7 +37,8 @@
     //TOGGLING FILTERS
     function toggleFilters(n) {
         if ($cPage === 0) {
-            for (let i = 0; i < 3; i++) { //BUTTON FILTERS
+            for (let i = 0; i < 3; i++) {
+                //BUTTON FILTERS
                 if (i == n) {
                     $filters[i] = true;
                 } else {
@@ -54,6 +57,11 @@
             $filters[i] = true;
         }
     }
+
+    const [send, receive] = crossfade({
+        duration: 1500,
+        easing: quintOut,
+    });
 
     //UPDATE PAGE
     function switchPage(n) {
@@ -78,24 +86,26 @@
     <!-- FILTERS -->
     <div class="navBar">
         {#if $fNotAll}
-        <button
-            on:click={AllProjects}
-            style:background-color={$cPage != 1 ? "#373737" : "#d9d9d9"}
-            style:color={$cPage != 1 ? "white" : "black"}
-            class="section">ALL WORK</button
-        >
+            <button
+                on:click={AllProjects}
+                style:background-color={$cPage != 1 ? "#373737" : "#d9d9d9"}
+                style:color={$cPage != 1 ? "white" : "black"}
+                class="section">ALL WORK</button
+            >
         {:else}
-        <button
-            on:click={AllProjects}
-            style:background-color={$cPage != 1 ? "#373737" : "#d9d9d9"}
-            style:color={$cPage != 1 ? "white" : "black"}
-            class="section">WORK</button
-        >
+            <button
+                on:click={AllProjects}
+                style:background-color={$cPage != 1 ? "#373737" : "#d9d9d9"}
+                style:color={$cPage != 1 ? "white" : "black"}
+                class="section">WORK</button
+            >
         {/if}
-        {#if $cPage == 0}
-            <div class="filter">
-                {#each fList as fil}
-                    <div class="bContainer">
+        <div class="filter">
+            {#each fList as fil}
+                {#if $cPage == 0}
+                    <div
+                        class="bContainer"
+                    >
                         <button on:click={() => toggleFilters(fil.index)}
                             >{fil.name}</button
                         >
@@ -109,16 +119,14 @@
                             <div class="bShield" />
                         {/if}
                     </div>
-                {/each}
-            </div>
-        {:else}
-            {#each fList as fil}
-                <div
-                    class="fCollapse"
-                    style:background-color={fil.color}
-                />
+                {:else}
+                    <div
+                        class="fCollapse"
+                        style:background-color={fil.color}
+                    />
+                {/if}
             {/each}
-        {/if}
+        </div>
         <button
             on:click={() => switchPage(1)}
             style:background-color={$cPage === 1 ? "#373737" : "#d9d9d9"}

@@ -1,15 +1,24 @@
 <!-- SVELTE APP -->
 <script>
+	// IMPORT VARIABLES
 	import { cPage, projects } from "./store.js";
 	// IMPORT COMPONENTS
 	import SideNav from "./components/SideNav.svelte";
 	import SideDisp from "./components/SideDisp.svelte";
 	import TopNav from "./components/TopNav.svelte";
 
+	import { fade, blur, slide, fly, } from "svelte/transition";
+
 	let contentComponent = null;
+	let unique = {};
+
+	function transitionContent() {
+		unique = {};
+	}
 
 	cPage.subscribe(() => {
 		updateContentComponent();
+		transitionContent();
 	});
 
 	export function updateContentComponent() {
@@ -39,7 +48,11 @@
 		<TopNav />
 	{/if}
 	<div class="content" style:margin={sWidth > 1000 ? "0 0 0 320px" : "0"}>
-		<svelte:component this={contentComponent} />
+		{#key unique}
+			<div transition:fly={{ duration: 300 }}>
+				<svelte:component this={contentComponent} />
+			</div>
+		{/key}
 	</div>
 </main>
 
@@ -47,7 +60,7 @@
 	main {
 		text-align: center;
 		background-color: white;
-		font-family: 'Space Mono', monospace;
+		font-family: "Space Mono", monospace;
 		border: 1px solid black;
 	}
 

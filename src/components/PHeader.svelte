@@ -40,7 +40,7 @@
     font-weight: 700;
     font-size: 32px;
 
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
   }
 
   .hRow {
