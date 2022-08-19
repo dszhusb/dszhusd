@@ -63,6 +63,7 @@ export let projects = [
     { name: "ORGANIC FORM FROM ARTIFICIAL RULES", cat: 1, img: "oAnail.png", comp: Construction, link: 6 },
     { name: "PORTFOLIO WEBSITE", cat: 0, img: "folioNail.png", comp: Construction, link: 7 },
     { name: "DASH", cat: 0, img: "dashNail.png", comp: ProjectTemplate, link: 8 },
+    // { name: "LEAGUE OF LEGENDS DATA VISUALIZATION", cat: 1, img: "lolNail.png", comp: ProjectTemplate, link: 5 },
     { name: "DIGITAL ART", cat: 2, img: "artNail.png", comp: GalleryTemplate, link: 9 },
     { name: "BARILLA POP UP", cat: 0, img: "barillaNail.png", comp: ProjectTemplate, link: 10 },
     { name: "SKETCHBOOK", cat: 2, img: "sketchNail.png", comp: GalleryTemplate, link: 11 },
@@ -73,7 +74,7 @@ export let projects = [
 //Project Contents
 export const projectContent = writable([
     { //TOBI
-        pDescription: "TOBI: an electronic organism that lives and breathes the electronic signals in its environment",
+        pDescription: "TOBI: an electronic organism that reveals electronic signals in its environment",
         pBlurbs: [
             "Concept Development, Prototyping",
             "N/A",
@@ -83,22 +84,19 @@ export const projectContent = writable([
             "https://dandy-catcher-a71.notion.site/Organic-Organism-TOBI-34da0f7d414643f98b11546d170e0695",
         ],
         mImage: "./assets/thumbnails/tobiNail.png",
-        cImages: [
-            "../assets/tobi/bioRef.png",
-            "../assets/tobi/sket.jpg",
-            "../assets/tobi/lungs.gif"
-        ],
-        cParas: [
-            "TOBI is an electronic organism that lives and breathes the electronic signals in the environment around it. TOBI's organs are pneumatically actuated, with the motion of each organ representing a type of electronic data being collected by Mites specifically, WiFi strength, bluetooth connections, and electromagnetic noise.",
-            "Built for shared spaces, TOBI was designed as a colony of organisms spread throughout a building's rooms and hallways. The behavior of each member changes depending on the local state of its immediate surroundings, allowing occupants to compare the characteristics of each of the spaces they inhabit as they pass from room to room.",
-            "For example, users are able to see how WiFi signal fades as each room gets farther from the router, or how an office space with myriad devices is much louder electronically than a quiet library.",
-            "Why organic forms? Why soft Robotics? Traditional data visualization methods make use of charts, graphs, and tables. However, although we might think of the electronic world as being precise and exacting, it can also be counter-intuitive and alien to our biological senses and modes of communication. For someone without context, something like a chart of the electromagnetic activity doesn't really mean anything. However, one thing that we all do have an intuitive grasp on is how organic life should move, breathe, and behave. Representing electromagnetic data with biological movement provides a baseline of what's high or low, normal, or dangerous.",
-            "Aside from the practical applications the data, I hope users will also develop an emotional bond both TOBI and the electronic world it reveals. The electronic world often slips our mind invisible and intangible except when it manifests through the functionality of our devices.",
-            "By representing data as organic movements, I hope to not only make that data more tangible but also more evocative and relatable, trading exact numbers and measures for our instinctual sense for how things should move and breathe. I hope the comparison between the artificial input and the organic response creates a compelling contrast, representing artificial and exacting electronic data in a subjective, emotional way.",
-        ],
+        cContent: [
+            [2, "TOBI is an electronic organism that lives and breathes the electronic signals in the environment around it. TOBI's organs are pneumatically actuated, with the motion of each organ representing a type of electronic data being collected by Mites specifically, WiFi strength, bluetooth connections, and electromagnetic noise."],
+            [0, "Built for shared spaces, TOBI was designed as a colony of organisms spread throughout a building's rooms and hallways. The behavior of each member changes depending on the local state of its immediate surroundings, allowing occupants to compare the characteristics of each of the spaces they inhabit as they pass from room to room."],
+            [1, "../assets/tobi/bioRef.png"],
+            [0, "For example, users are able to see how WiFi signal fades as each room gets farther from the router, or how an office space with myriad devices is much louder electronically than a quiet library."],
+            [1, "../assets/tobi/sket.jpg"],
+            [0, "Aside from the practical applications the data, I hope users will also develop an emotional bond both TOBI and the electronic world it reveals. The electronic world often slips our mind invisible and intangible except when it manifests through the functionality of our devices."],
+            [1, "../assets/tobi/lungs.gif"],
+            [0, "By representing data as organic movements, I hope to not only make that data more tangible but also more evocative and relatable, trading exact numbers and measures for our instinctual sense for how things should move and breathe. I hope the comparison between the artificial input and the organic response creates a compelling contrast, representing artificial and exacting electronic data in a subjective, emotional way."]
+        ]
     },
     { //SOMA
-        pDescription: "A virtual recipe resource that visualizes the most popular dishes by month, analyzing data from NYT Cooking and Google Trends APIs.",
+        pDescription: "A virtual recipe resource that visualizes the most popular dishes by month",
         pBlurbs: [
             "UI/UX Design, Front/Backend Development",
             "Alison Hu, Richard Zhou",
@@ -109,20 +107,14 @@ export const projectContent = writable([
             "https://dszhusb.github.io/CDT-Sandbox/",
         ],
         mImage: "./assets/thumbnails/somaNail.png",
-        cImages: [
-            "../assets/soma/gestures.png",
-            "../assets/soma/chart.png",
-            "../assets/soma/proto.png"
-        ],
-        cParas: [
-            "Favorite Foods by The Months, is a data visualization project that seeks to combine the playfulness of data exploration with a traditional recipe resource.",
-            "Scrolling down from the introduction page, visitors are presented a timeline of the months of the year with the trendiest foods of each month listed in descending order. Selecting a food expands the column to list specific recipes for that food. Along with a thumbnail and brief description, visitors are linked to the full recipe on NYT Cooking.",
-            "Working on Favorite Foods by The Months provided an interesting challenge from both the design and development perspectives. Iterating on the website's UI/UX, we sought to make the website as informative as possible at each stage without being overwhelming. On the development side, we learned to process data through API and to serve and display that data through the front and backend portions of a website.",
-            "Our final result seeks to modify the relationship between the visitor and the act of looking for a recipe. Recipes have traditionally been passed down in a regional or familial manner. Globalization, the internet, and widespread publications changed that dynamic. Favorite Foods by The Months seeks to take this concept one step further, using data to aggregate a nationwide picture of popular foods.",
-        ],
+        cContent: [
+            [1, "../assets/soma/gestures.png"],
+            [1, "../assets/soma/chart.png"],
+            [1, "../assets/soma/proto.png"],
+        ]
     },
     { //FAVORITE FOODS
-        pDescription: "A virtual recipe resource that visualizes the most popular dishes by month, analyzing data from NYT Cooking and Google Trends APIs.",
+        pDescription: "A virtual recipe resource that visualizes the most popular dishes by month",
         pBlurbs: [
             "UI/UX Design, Front/Backend Development",
             "Maggie Ma, Adam Grant",
@@ -133,19 +125,17 @@ export const projectContent = writable([
             "https://dszhusb.github.io/CDT-Sandbox/",
         ],
         mImage: "./assets/favoriteFoods/asparagusCap.png",
-        cImages: [
-            "../assets/favoriteFoods/ffbtmOverview.png",
-            "../assets/favoriteFoods/ffbtmDetail.png",
-        ],
-        cParas: [
-            "Favorite Foods by The Months, is a data visualization project that seeks to combine the playfulness of data exploration with a traditional recipe resource.",
-            "Scrolling down from the introduction page, visitors are presented a timeline of the months of the year with the trendiest foods of each month listed in descending order. Selecting a food expands the column to list specific recipes for that food. Along with a thumbnail and brief description, visitors are linked to the full recipe on NYT Cooking.",
-            "Working on Favorite Foods by The Months provided an interesting challenge from both the design and development perspectives. Iterating on the website's UI/UX, we sought to make the website as informative as possible at each stage without being overwhelming. On the development side, we learned to process data through API and to serve and display that data through the front and backend portions of a website.",
-            "Our final result seeks to modify the relationship between the visitor and the act of looking for a recipe. Recipes have traditionally been passed down in a regional or familial manner. Globalization, the internet, and widespread publications changed that dynamic. Favorite Foods by The Months seeks to take this concept one step further, using data to aggregate a nationwide picture of popular foods.",
-        ],
+        cContent: [
+            [2, "Favorite Foods by The Months, is a data visualization project that seeks to combine the playfulness of data exploration with a traditional recipe resource."],
+            [0, "Scrolling down from the introduction page, visitors are presented a timeline of the months of the year with the trendiest foods of each month listed in descending order. Selecting a food expands the column to list specific recipes for that food. Along with a thumbnail and brief description, visitors are linked to the full recipe on NYT Cooking."],
+            [1, "../assets/favoriteFoods/ffbtmOverview.png"],
+            [1, "../assets/favoriteFoods/ffbtmDetail.png"],
+            [0, "Working on Favorite Foods by The Months provided an interesting challenge from both the design and development perspectives. Iterating on the website's UI/UX, we sought to make the website as informative as possible at each stage without being overwhelming. On the development side, we learned to process data through API and to serve and display that data through the front and backend portions of a website."],
+            [0, "Our final result seeks to modify the relationship between the visitor and the act of looking for a recipe. Recipes have traditionally been passed down in a regional or familial manner. Globalization, the internet, and widespread publications changed that dynamic. Favorite Foods by The Months seeks to take this concept one step further, using data to aggregate a nationwide picture of popular foods."]
+        ]
     },
     { //LOL
-        pDescription: "A data visualization exploration of quantitative and aesthetic representations of in game player data.",
+        pDescription: "A data visualization exploration of aesthetic representations of in game player data.",
         pBlurbs: [
             "UI/UX Design, Front/Backend Development",
             "N/A",
@@ -156,15 +146,13 @@ export const projectContent = writable([
             "https://dszhusb.github.io/giftFromTheFuture/",
         ],
         mImage: "./assets/thumbnails/lolNail.png",
-        cImages: [
-            "./assets/leagueViz/single.png",
-            "./assets/leagueViz/splitCap.png",
-        ],
-        cParas: [
-            "Currently stat tracking in video games is limited to the contexts of achievement and performance. In single player games, achievement based systems emerged from players seeking an extra reward for extraordinary feats or completion. In multiplayer games in-game leaderboards and external stat trackers primarily exist as tools aimed at improving in the game.",
-            "However, players' relationships to the games have evolved over the years beyond just the contexts of competition and achievement. To afford player's desire to express their identities in-game, it's become common place for developers to create and sell aesthetic upgrades to a player's characters, profiles, etc to allow for more personalization. While a player's personal relationship has been explored in-game, this opportunity has not yet been explored in the realm of game stats and meta-data.",
-            "My goal for this project is to create a representation of game stats that reflects a player's personal connection to that game, visualizing personal game data for the purpose of preserving memories, a sense of identity, and a personal experience. I'd like the end product to have the social impact of data visualizations of other types of digital experiences, ex. Spotify Wrapped."
-        ],
+        cContent: [
+            [2, "Currently stat tracking in video games is limited to the contexts of achievement and performance. In single player games, achievement based systems emerged from players seeking an extra reward for extraordinary feats or completion. In multiplayer games in-game leaderboards and external stat trackers primarily exist as tools aimed at improving in the game."],
+            [0, "However, players' relationships to the games have evolved over the years beyond just the contexts of competition and achievement. To afford player's desire to express their identities in-game, it's become common place for developers to create and sell aesthetic upgrades to a player's characters, profiles, etc to allow for more personalization. While a player's personal relationship has been explored in-game, this opportunity has not yet been explored in the realm of game stats and meta-data."],
+            [1, "./assets/leagueViz/single.png"],
+            [0, "My goal for this project is to create a representation of game stats that reflects a player's personal connection to that game, visualizing personal game data for the purpose of preserving memories, a sense of identity, and a personal experience. I'd like the end product to have the social impact of data visualizations of other types of digital experiences, ex. Spotify Wrapped."],
+            [1, "./assets/leagueViz/splitCap.png"],
+        ]
     },
     { //ORGANIC
         pDescription: "An ongoing exploration of producing organic form from artificial rules. This project explores the process of generating 2D and 3D forms then bringing those models into the physical world",
@@ -177,16 +165,10 @@ export const projectContent = writable([
             "https://dandy-catcher-a71.notion.site/Favorite-Foods-By-The-Month-8fe21323bd3e422eb1f7cedf1439a521",
         ],
         mImage: "./assets/organicArtificial/organicArtificial.png",
-        cImages: [
-            "../assets/organicArtificial/sketch2.jpeg",
-            "../assets/organicArtificial/3D Shell.JPG",
-        ],
-        cParas: [
-            "Favorite Foods by The Months, is a data visualization project that seeks to combine the playfulness of data exploration with a traditional recipe resource.",
-            "Scrolling down from the introduction page, visitors are presented a timeline of the months of the year with the trendiest foods of each month listed in descending order. Selecting a food expands the column to list specific recipes for that food. Along with a thumbnail and brief description, visitors are linked to the full recipe on NYT Cooking.",
-            "Working on Favorite Foods by The Months provided an interesting challenge from both the design and development perspectives. Iterating on the website's UI/UX, we sought to make the website as informative as possible at each stage without being overwhelming. On the development side, we learned to process data through API and to serve and display that data through the front and backend portions of a website.",
-            "Our final result seeks to modify the relationship between the visitor and the act of looking for a recipe. Recipes have traditionally been passed down in a regional or familial manner. Globalization, the internet, and widespread publications changed that dynamic. Favorite Foods by The Months seeks to take this concept one step further, using data to aggregate a nationwide picture of popular foods.",
-        ],
+        cContent: [
+            [1, "../assets/organicArtificial/sketch2.jpeg"],
+            [1, "../assets/organicArtificial/3D Shell.JPG"]
+        ]
     },
     { //PORTFOLIO
         pDescription: "Portfolio Website",
@@ -200,16 +182,7 @@ export const projectContent = writable([
             "https://dszhusb.github.io/CDT-Sandbox/",
         ],
         mImage: "./assets/thumbnails/folioNail.png",
-        cImages: [
-            "../assets/site/shellOrg.png",
-            "../assets/site/asts.png",
-        ],
-        cParas: [
-            "Favorite Foods by The Months, is a data visualization project that seeks to combine the playfulness of data exploration with a traditional recipe resource.",
-            "Scrolling down from the introduction page, visitors are presented a timeline of the months of the year with the trendiest foods of each month listed in descending order. Selecting a food expands the column to list specific recipes for that food. Along with a thumbnail and brief description, visitors are linked to the full recipe on NYT Cooking.",
-            "Working on Favorite Foods by The Months provided an interesting challenge from both the design and development perspectives. Iterating on the website's UI/UX, we sought to make the website as informative as possible at each stage without being overwhelming. On the development side, we learned to process data through API and to serve and display that data through the front and backend portions of a website.",
-            "Our final result seeks to modify the relationship between the visitor and the act of looking for a recipe. Recipes have traditionally been passed down in a regional or familial manner. Globalization, the internet, and widespread publications changed that dynamic. Favorite Foods by The Months seeks to take this concept one step further, using data to aggregate a nationwide picture of popular foods.",
-        ],
+        cContent: []
     },
     { //DASH
         pDescription: "A VUI assistant that helps children learn how to read. This prototype makes use of p5.js along with the riTa and speech libraries.",
@@ -223,15 +196,13 @@ export const projectContent = writable([
             "https://merlerker.github.io/cdt/cdt-vui/ui_flow/",
         ],
         mImage: "./assets/dash/dashNail.png",
-        cImages: [
-            "../assets/dash/dash.png",
-            "../assets/dash/Reading.png"
-        ],
-        cParas: [
-            "According to UNESCO, in 2020 the number of children experiencing reading difficulties rose from 460 million to 584 million. The rise of more than 20%, wiped out two decades of education gains. To address this growing problem, we decided to create an intelligent assistant to support children and their parents/teachers as they learn to read books aloud.",
-            "Right now, there are plenty other apps that children can use to read. But with the addition of VUI, guidance can be customized to respond immediately to a child's specific needs. The goal for this project was to prototype a responsive VUI that responds to a child's input, be it asking a question, pausing on a sentence, or mispronouncing a word.",
-            "Our VUI has two primary components, Dash (the VUI itself) and a word pronunciation aid. Users choose a book from the library to read aloud. As they progress, Dash will be on standby to answer questions and help along the way. When a spelling or pronunciation question is asked, Dash will be replaced with our pronunciation aid.",
-            "Dash was written primarily with p5.js, p5 speech, and riTa. We embedded a p5.js canvas into an html page to create the final prototype.",
+        cContent: [
+            [2, "According to UNESCO, in 2020 the number of children experiencing reading difficulties rose from 460 million to 584 million. The rise of more than 20%, wiped out two decades of education gains. To address this growing problem, we decided to create an intelligent assistant to support children and their parents/teachers as they learn to read books aloud."],
+            [0, "Right now, there are plenty other apps that children can use to read. But with the addition of VUI, guidance can be customized to respond immediately to a child's specific needs. The goal for this project was to prototype a responsive VUI that responds to a child's input, be it asking a question, pausing on a sentence, or mispronouncing a word."],
+            [1, "../assets/dash/dash.png"],
+            [0, "Our VUI has two primary components, Dash (the VUI itself) and a word pronunciation aid. Users choose a book from the library to read aloud. As they progress, Dash will be on standby to answer questions and help along the way. When a spelling or pronunciation question is asked, Dash will be replaced with our pronunciation aid."],
+            [1, "../assets/dash/Reading.png"],
+            [0, "Dash was written primarily with p5.js, p5 speech, and riTa. We embedded a p5.js canvas into an html page to create the final prototype."]
         ]
     },
     { //DIGITAL
@@ -261,17 +232,11 @@ export const projectContent = writable([
             "https://nasal-pomelo-984.notion.site/Experiential-Design-40b1b7d859aa4fe6aa923658364a0344",
         ],
         mImage: "./assets/thumbnails/barillaNail.png",
-        cImages: [
-            "../assets/barilla/barilla.png",
-            "../assets/barilla/square.png",
-            "../assets/barilla/pastaBox.png"
-        ],
-        cParas: [
-            "Favorite Foods by The Months, is a data visualization project that seeks to combine the playfulness of data exploration with a traditional recipe resource.",
-            "Scrolling down from the introduction page, visitors are presented a timeline of the months of the year with the trendiest foods of each month listed in descending order. Selecting a food expands the column to list specific recipes for that food. Along with a thumbnail and brief description, visitors are linked to the full recipe on NYT Cooking.",
-            "Working on Favorite Foods by The Months provided an interesting challenge from both the design and development perspectives. Iterating on the website's UI/UX, we sought to make the website as informative as possible at each stage without being overwhelming. On the development side, we learned to process data through API and to serve and display that data through the front and backend portions of a website.",
-            "Our final result seeks to modify the relationship between the visitor and the act of looking for a recipe. Recipes have traditionally been passed down in a regional or familial manner. Globalization, the internet, and widespread publications changed that dynamic. Favorite Foods by The Months seeks to take this concept one step further, using data to aggregate a nationwide picture of popular foods.",
-        ],
+        cContent: [
+            [1, "../assets/barilla/barilla.png"],
+            [1, "../assets/barilla/square.png"],
+            [1, "../assets/barilla/pastaBox.png"]
+        ]
     },
     { //SKETCHES
         pDescription: "Sketchbook",

@@ -7,8 +7,7 @@
     let pBlurbs;
     let links;
     let mImage;
-    let cImages;
-    let cParas;
+    let cContent;
 
     pPage.subscribe(() => {
         if ($cPage > 1) {
@@ -16,8 +15,7 @@
             pBlurbs = $projectContent[$pPage].pBlurbs;
             links = $projectContent[$pPage].links;
             mImage = $projectContent[$pPage].mImage;
-            cImages = $projectContent[$pPage].cImages;
-            cParas = $projectContent[$pPage].cParas;
+            cContent = $projectContent[$pPage].cContent;
         }
     });
 
@@ -65,34 +63,25 @@
 
     <!-- CONTENT -->
     <div class="pContent">
-        <div class="flexContainer">
-            <div class="flexItemLeft">
-                {#each cImages as image}
+        <div class="contCol">
+            <p class="pBolded">PROJECT OVERVIEW</p>
+            {#each cContent as cont}
+                {#if cont[0] == 0}
+                    <p class="contPara">
+                        {cont[1]}
+                    </p>
+                {:else if cont[0] == 2}
+                    <p class="contPara" style="font-weight: bold;">
+                        {cont[1]}
+                    </p>
+                {:else}
                     <img
-                        src={image}
-                        alt="Project Screencap"
-                        style="margin-bottom: 20px;"
+                        src={cont[1]}
+                        alt="ProjectScreencap"
+                        style="margin: 30px 0 30px 0; border: 1px black solid;"
                     />
-                {/each}
-            </div>
-            <div class="flexItemRight">
-                {#if sWidth <= 1000}
-                    <br />
                 {/if}
-                <div>
-                    <p class="pBolded">PROJECT OVERVIEW</p>
-                    {#each cParas as para}
-                        <p class="pOver">{para}</p>
-                    {/each}
-                    <br />
-                    <a
-                        style="font-size: 16px; --hColor: {$hColor};"
-                        href={links[0]}
-                        target="_blank"
-                        class="pLink">IN DEPTH PROCESS<br />DOCUMENTATION</a
-                    >
-                </div>
-            </div>
+            {/each}
         </div>
     </div>
 </div>
@@ -135,53 +124,30 @@
     }
 
     /* CONTENT */
-    p {
-        margin: 0 0 20px 0;
-    }
 
     .pContent {
-        padding: 40px 40px 80px 40px;
+        padding: 0px 40px 80px 40px;
     }
 
     .pBolded {
         font-size: 24px;
     }
 
-    .pOver {
+    .contPara {
+        font-family: "Space Grotesk";
+        line-height: 145%;
         font-size: 16px;
-        font-family: "IBM Plex Mono";
-        line-height: 1.45;
     }
 
-    /* ORGANIZATION */
-    .flexContainer {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .flexItemLeft {
-        flex: 50%;
-    }
-
-    .flexItemRight {
-        flex: 50%;
-    }
-
-    .flexItemRight div {
-        margin-left: 40px;
-        max-width: 515px;
+    .contCol {
+        max-width: 800px;
+        margin-left: 20px;
     }
 
     @media (max-width: 1000px) {
-        .flexItemLeft,
-        .flexItemRight {
-            flex: 100%;
-            text-align: left;
-        }
-
-        .flexItemRight div {
-            max-width: 1000px;
-            margin: 0;
+        .contCol {
+            margin: auto;
+            max-width: 600px;
         }
     }
 </style>

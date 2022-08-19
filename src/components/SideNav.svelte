@@ -2,8 +2,7 @@
 <script>
     //IMPORT DEPENDECIES
     import NavIcon from "./NavIcon.svelte";
-    import { crossfade } from "svelte/transition";
-    import { quintOut } from "svelte/easing";
+    import { slide, scale, fade } from "svelte/transition";
     import {
         cPage,
         filters,
@@ -58,15 +57,16 @@
         }
     }
 
-    const [send, receive] = crossfade({
-        duration: 1500,
-        easing: quintOut,
-    });
-
     //UPDATE PAGE
     function switchPage(n) {
         cPage.set(n);
     }
+
+    let unique = {};
+
+	function transitionContent() {
+		unique = {};
+	}
 </script>
 
 <div class="sidenav">
@@ -100,33 +100,33 @@
                 class="section">WORK</button
             >
         {/if}
-        <div class="filter">
-            {#each fList as fil}
-                {#if $cPage == 0}
-                    <div
-                        class="bContainer"
-                    >
-                        <button on:click={() => toggleFilters(fil.index)}
-                            >{fil.name}</button
-                        >
+        {#key unique}
+            <div class="filter" transition:fade>
+                {#each fList as fil}
+                    {#if $cPage == 0}
+                        <div class="bContainer">
+                            <button on:click={() => toggleFilters(fil.index)}
+                                >{fil.name}</button
+                            >
+                            <div
+                                class="fIndicator"
+                                style:background-color={$filters[fil.index]
+                                    ? fil.color
+                                    : "white"}
+                            />
+                            {#if $cPage != 0}
+                                <div class="bShield" />
+                            {/if}
+                        </div>
+                    {:else}
                         <div
-                            class="fIndicator"
-                            style:background-color={$filters[fil.index]
-                                ? fil.color
-                                : "white"}
+                            class="fCollapse"
+                            style:background-color={fil.color}
                         />
-                        {#if $cPage != 0}
-                            <div class="bShield" />
-                        {/if}
-                    </div>
-                {:else}
-                    <div
-                        class="fCollapse"
-                        style:background-color={fil.color}
-                    />
-                {/if}
-            {/each}
-        </div>
+                    {/if}
+                {/each}
+            </div>
+        {/key}
         <button
             on:click={() => switchPage(1)}
             style:background-color={$cPage === 1 ? "#373737" : "#d9d9d9"}

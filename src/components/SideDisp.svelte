@@ -33,7 +33,7 @@
 
 <main>
     <Hoverable let:hovering={active}>
-        <div class="back" class:active on:click={() => switchPage(0)} transition:fade>
+        <div class="back" class:active on:click={() => switchPage(0)}>
             {#if active}
                 <div class="backFill" style="background-color: {$hColor}" />
             {:else}

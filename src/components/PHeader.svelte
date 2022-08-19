@@ -34,13 +34,13 @@
   h1 {
     margin: 0;
     text-align: left;
-    max-width: 1000px;
+    max-width: 800px;
 
     font-family: "Space Grotesk";
     font-weight: 700;
     font-size: 32px;
 
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
   }
 
   .hRow {

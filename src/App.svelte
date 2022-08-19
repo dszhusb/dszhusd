@@ -7,7 +7,7 @@
 	import SideDisp from "./components/SideDisp.svelte";
 	import TopNav from "./components/TopNav.svelte";
 
-	import { fade, blur, slide, fly, } from "svelte/transition";
+	import { blur, slide } from "svelte/transition";
 
 	let contentComponent = null;
 	let unique = {};
@@ -49,7 +49,7 @@
 	{/if}
 	<div class="content" style:margin={sWidth > 1000 ? "0 0 0 320px" : "0"}>
 		{#key unique}
-			<div transition:fly={{ duration: 300 }}>
+			<div transition:blur>
 				<svelte:component this={contentComponent} />
 			</div>
 		{/key}
