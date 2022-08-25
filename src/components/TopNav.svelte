@@ -11,13 +11,13 @@
 <div class="navbar">
     <ul>
         <li>
-            <div on:click={() => switchPage(1)} style="--hColor: {$hColor}">ABOUT</div>
+            <div on:click={() => switchPage("ABT")} style="--hColor: {$hColor}">ABOUT</div>
         </li>
         <li>
-            <div on:click={() => switchPage(0)} style="--hColor: {$hColor}">WORK</div>
+            <div on:click={() => switchPage("WRK")} style="--hColor: {$hColor}">WORK</div>
         </li>
         <li id="name">
-            <div on:click={() => switchPage(0)} style="--hColor: {$hColor}">DANIEL ZHU</div>
+            <div on:click={() => switchPage("WRK")} style="--hColor: {$hColor}">DANIEL ZHU</div>
         </li>
     </ul>
 </div>

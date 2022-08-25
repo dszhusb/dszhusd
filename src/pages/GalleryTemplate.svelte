@@ -1,22 +1,25 @@
 <!-- PROJECT PAGE TEMPLATE -->
 <script>
     import PHeader from "../components/PHeader.svelte";
-    import { pPage, cPage, hColor, projectContent } from "../store.js";
+    import { pageObj, cPage, hColor, projectContent } from "../store.js";
 
     let pDescription;
     let cImages;
     let selected = 0;
     let sWidth;
 
-    pPage.subscribe(() => {
-        if ($cPage > 1) {
-            pDescription = $projectContent[$pPage].pDescription;
-            cImages = $projectContent[$pPage].cImages;
+    pageObj.subscribe(() => {
+        if ($cPage !== "WRK" && $cPage !== "ABT") {
+            for (let cont of projectContent) {
+                if ($cPage === cont.key) {
+                    pDescription = cont.pDescription;
+                    cImages = cont.cImages;
+                }
+            }
         }
     });
 
     function switchImage(n) {
-        console.log(n);
         selected = n;
     }
 </script>
@@ -68,18 +71,18 @@
         text-align: center;
         position: relative;
 
-        background-color: #F6F6F6;
+        background-color: #f6f6f6;
         border: 0.5px black solid;
     }
 
     .dispContainer img {
-        max-height: 100%;  
-        max-width: 100%; 
-        position: absolute;  
-        top: 0;  
-        bottom: 0;  
-        left: 0;  
-        right: 0;  
+        max-height: 100%;
+        max-width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         margin: auto;
 
         border-left: 1px solid black;
@@ -87,13 +90,13 @@
     }
 
     .sbImg {
-        max-height: 80%;  
-        max-width: 80%; 
-        position: absolute;  
-        top: 0;  
-        bottom: 0;  
-        left: 0;  
-        right: 0;  
+        max-height: 80%;
+        max-width: 80%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         margin: auto;
 
         border: 1px black solid;

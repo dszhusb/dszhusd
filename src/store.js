@@ -2,6 +2,7 @@
 
 // IMPORTING STORE PROPERTIES
 import { writable, derived } from 'svelte/store';
+import router from "page";
 
 //IMPORT PAGES
 import Work from "./pages/Work.svelte";
@@ -11,11 +12,25 @@ import GalleryTemplate from "./pages/GalleryTemplate.svelte";
 import Construction from "./pages/Construction.svelte";
 
 //PAGE VARIABLES
-export const cPage = writable(0);
-export const pPage = derived(cPage, $cPage => $cPage - 2);
-export const pCat = derived(cPage, $cPage => projects[$cPage].cat);
+export const cPage = writable("WRK");
+export const pageObj = derived(cPage, function ($cPage) {
+        for (let p of projects) {
+            if (p.key === $cPage) {
+                return p;
+            }
+        }
+    });
+export const pCat = derived(pageObj, $pageObj => $pageObj.cat);
 export const filters = writable([true, true, true]);
 export const fNotAll = derived(filters, $filters => $filters.includes(false));
+
+//ROUTING
+// export const routePkg = derived(pageObj, function ($pageObj) {
+//     let url = "/";
+//     url += pageObj.name;
+//     let comp = pageObj.comp;
+//     return [url, comp];
+// });
 
 //COLOR VARIABLES
 export const hIcon = writable(0);
@@ -54,26 +69,26 @@ let shells = [
 
 //Projects
 export let projects = [
-    { name: "WORK", cat: 3, comp: Work, link: 0 },
-    { name: "ABOUT", cat: 3, comp: About, link: 1 },
-    { name: "TOBI", cat: 0, img: "tobiNail.png", comp: ProjectTemplate, link: 2 },
-    { name: "SOMA", cat: 0, img: "somaNail.png", comp: Construction, link: 3 },
-    { name: "FAVORITE FOODS BY THE MONTH", cat: 0, img: "favoriteFoodsNail.png", comp: ProjectTemplate, link: 4 },
-    { name: "LEAGUE OF LEGENDS DATA VISUALIZATION", cat: 1, img: "lolNail.png", comp: ProjectTemplate, link: 5 },
-    { name: "ORGANIC FORM FROM ARTIFICIAL RULES", cat: 1, img: "oAnail.png", comp: Construction, link: 6 },
-    { name: "PORTFOLIO WEBSITE", cat: 0, img: "folioNail.png", comp: Construction, link: 7 },
-    { name: "DASH", cat: 0, img: "dashNail.png", comp: ProjectTemplate, link: 8 },
-    // { name: "LEAGUE OF LEGENDS DATA VISUALIZATION", cat: 1, img: "lolNail.png", comp: ProjectTemplate, link: 5 },
-    { name: "DIGITAL ART", cat: 2, img: "artNail.png", comp: GalleryTemplate, link: 9 },
-    { name: "BARILLA POP UP", cat: 0, img: "barillaNail.png", comp: ProjectTemplate, link: 10 },
-    { name: "SKETCHBOOK", cat: 2, img: "sketchNail.png", comp: GalleryTemplate, link: 11 },
-    { name: "COMPUTATIONAL ART", cat: 2, img: "computationNail.png", comp: GalleryTemplate, link: 12 },
-    { name: "WATER VESSEL", cat: 1, img: "vesselNail.png", comp: GalleryTemplate, link: 13 }
+    { name: "WORK", cat: 3, comp: Work, key: "WRK" },
+    { name: "ABOUT", cat: 3, comp: About, key: "ABT" },
+    { name: "TOBI", cat: 0, img: "tobiNail.png", comp: ProjectTemplate, key: "TBI" },
+    { name: "SOMA", cat: 0, img: "somaNail.png", comp: ProjectTemplate, key: "SMA" },
+    { name: "FAVORITE FOODS BY THE MONTH", cat: 0, img: "favoriteFoodsNail.png", comp: ProjectTemplate, key: "FFM" },
+    { name: "SKETCHBOOK", cat: 2, img: "sketchNail.png", comp: GalleryTemplate, key: "SBK" },
+    { name: "ORGANIC FORM FROM ARTIFICIAL RULES", cat: 1, img: "oAnail.png", comp: ProjectTemplate, key: "OFR" },
+    { name: "PORTFOLIO WEBSITE", cat: 0, img: "folioNail.png", comp: Construction, key: "PWS" },
+    { name: "DASH", cat: 0, img: "dashNail.png", comp: ProjectTemplate, key: "DSH" },
+    { name: "LEAGUE OF LEGENDS DATA VISUALIZATION", cat: 1, img: "lolNail.png", comp: ProjectTemplate, key: "LDV" },
+    { name: "DIGITAL ART", cat: 2, img: "artNail.png", comp: GalleryTemplate, key: "DRT" },
+    { name: "BARILLA POP UP", cat: 0, img: "barillaNail.png", comp: ProjectTemplate, key: "BUP" },
+    { name: "COMPUTATIONAL ART", cat: 2, img: "computationNail.png", comp: GalleryTemplate, key: "CRT" },
+    { name: "WATER VESSEL", cat: 1, img: "vesselNail.png", comp: GalleryTemplate, key: "VES" }
 ];
 
 //Project Contents
-export const projectContent = writable([
+export const projectContent = [
     { //TOBI
+        key: "TBI",
         pDescription: "TOBI: an electronic organism that reveals electronic signals in its environment",
         pBlurbs: [
             "Concept Development, Prototyping",
@@ -85,17 +100,23 @@ export const projectContent = writable([
         ],
         mImage: "./assets/thumbnails/tobiNail.png",
         cContent: [
-            [2, "TOBI is an electronic organism that lives and breathes the electronic signals in the environment around it. TOBI's organs are pneumatically actuated, with the motion of each organ representing a type of electronic data being collected by Mites specifically, WiFi strength, bluetooth connections, and electromagnetic noise."],
-            [0, "Built for shared spaces, TOBI was designed as a colony of organisms spread throughout a building's rooms and hallways. The behavior of each member changes depending on the local state of its immediate surroundings, allowing occupants to compare the characteristics of each of the spaces they inhabit as they pass from room to room."],
-            [1, "../assets/tobi/bioRef.png"],
-            [0, "For example, users are able to see how WiFi signal fades as each room gets farther from the router, or how an office space with myriad devices is much louder electronically than a quiet library."],
-            [1, "../assets/tobi/sket.jpg"],
-            [0, "Aside from the practical applications the data, I hope users will also develop an emotional bond both TOBI and the electronic world it reveals. The electronic world often slips our mind invisible and intangible except when it manifests through the functionality of our devices."],
+            [3, "PROJECT OVERVIEW"],
+            [2, "TOBI is an electronic organism that lives and breathes the electronic signals in the environment around it. TOBI's body is separated into 3 “organs” with the motion of each organ representing a type of electronic data: WiFi strength, bluetooth connections, and electromagnetic noise. The rise and fall in each type of data are manifest in the movement of their respective organs each modeled off a real world animal or organ."],
+            [0, "Built for shared spaces, TOBI was designed as a colony of organisms spread throughout a building's rooms and hallways. Individually, each member reveals the electronic signals in the immediate area around it. This gives users insight into specific metrics like the Wifi strength in a particular room or local electrical activity. As a colony, however, TOBI provides a picture of the state of a building as a whole, one that's experienced by observing the changes in data from room to room, highlighting the highly spacial nature of the data."],
             [1, "../assets/tobi/lungs.gif"],
-            [0, "By representing data as organic movements, I hope to not only make that data more tangible but also more evocative and relatable, trading exact numbers and measures for our instinctual sense for how things should move and breathe. I hope the comparison between the artificial input and the organic response creates a compelling contrast, representing artificial and exacting electronic data in a subjective, emotional way."]
+            [0, "At this point you might ask “why organic forms?” The first reason has to do with the nature of the data. Although we might think of the electronic world as being precise and exacting, it is also invisible and alien to our biological senses in many ways. Representing something like electromagnetic noise on a graph provides an precise depiction of the data. However, to someone without the proper context or data literacy skills that graph doesn't mean much. Some meaning is implied when the data is high or low, however, there is no emotional weight attached to number or real world connection."],
+            [0, "When I chose to represent these electronics data with organic movement, I hoped to sacrifice the precision of a graph for our intuitive sense for how a living organ, or organism should move. Indeed, while TOBI might not be as immediately useful as a data analytics tool, I hope it will make data more tangible, evocative, and relatable. TOBI’s long term value as a tool increases over time as a user develops a closer relationship with the organs and what their movements represent. However, its immediate value comes from the striking contrast it poses between artificial input and organic representation, forcing users to ask questions about how we think about and interact the invisible electronic environment around us."],
+            [3, "PROCESS OVERVIEW"],
+            [1, "../assets/tobi/sket.jpg"],
+            [0, "TOBI's organs were inspired by work in the soft robotics field. Each organ is a hollow silicone structure with multiple chambers that are pneumatically actuated by air pumps and valves controlled via Arduino. Designing the form and movement of each organ, I drew from various forms I saw in the real world, particularly in sea creatures and microbiology as well as normal human organs. I looked for a range of forms and actuation that could accommodate discrete and continuous data with a consistent aesthetic while also maintaining a certain degree of relatability."],
+            [1, "../assets/tobi/bioRef.png"],
+            [0, "With the forms mapped out, I moulded and casted each organ dozens of times to nail the process and create the visceral effects I wanted. I also needed assemble the electronics and physical housings complete TOBI's physical form."],
+            [3, "REFLECTION"],
+            [0, "This project was an opportunity to push my knowledge and technical skills with technologies like Arduino and soft robotics manufacturing, but also softer skills like communicating an abstract concept in a intriguing way and designing a unique visceral experience. While I am happy with the result as a whole, there is still so much potential in further developing both TOBI’s organs and  everything surrounding them, making TOBI more communicative as a data visualization tool and a thought provoking as an installation."]
         ]
     },
     { //SOMA
+        key: "SMA",
         pDescription: "A virtual recipe resource that visualizes the most popular dishes by month",
         pBlurbs: [
             "UI/UX Design, Front/Backend Development",
@@ -108,12 +129,22 @@ export const projectContent = writable([
         ],
         mImage: "./assets/thumbnails/somaNail.png",
         cContent: [
+            [3, "PROJECT OVERVIEW"],
+            [2, "SOMA is a dynamic, expressive puppet that derives its movements not from a puppeteer manipulating its limbs with strings, but the raw audio input of speech. As you talk to SOMA, it manifests the cadence, emotion, and expressiveness of your speech in its posture and gestures in real time. Rather than being a traditional problem and solution design challenge, SOMA is an exploration into how gestures and body language are inherently related to our understanding of language and communication. "],
+            [0, "Between our different modes of communication, nonverbal factors like body language, gestures, and facial expressions have been shown to carry much more meaning then the actual semantic meaning of the words we speak. However, these aspects of communication often go unnoticed as they’re processed by our subconscious minds. While we typically use these nonverbal forms of communication to contextualize the verbal ones, we wanted to ask: can we reconstruct the gestures and body language that go along with a voice from a voice alone?"],
+            [0, "Along with the technical details of creating gestures from speech itself, we needed to create an avatar capable of expressing a dynamic range of motion and emotion to convey them. We settled on an inflatable puppet that could stretch and bend and bounce across a full range of expression. To pilot this inflatable, we created a system of pulleys and strings controlled by and Arduino that’s fed data from our JS site that processes the audio input."],
+            [3, "PROCESS OVERVIEW"],
             [1, "../assets/soma/gestures.png"],
+            [0, "After the concept development stage, my primary role in this project was to develop the Arduino controllers and half of the backend JS that derived cadence, emotion, and intensity from the raw data. "],
             [1, "../assets/soma/chart.png"],
+            [0, "Aside from the technical experienced I gained with Arduino, assembling physical prototypes, and backend development, I learned most about abstracting human gestures and poses. To recreate the range of gestures SOMA would need to express, I studied gestures and body language both in research and in the people around me. With these references in mind, we created a range of behaviors adapted for SOMA that could work across the continuous spectrum of inputs. "],
             [1, "../assets/soma/proto.png"],
+            [3, "REFLECTION"],
+            [0, "By itself, SOMA is an amusing and hopefully thought provoking experiment. However, I believe what we learned about producing body language and gesture from speech, even in the limited was SOMA achieved it, can be applicable in a broad variety of situations. The same techniques could be applied to creating more expressive digital avatars for online communication and so much more!"]
         ]
     },
     { //FAVORITE FOODS
+        key: "FFM",
         pDescription: "A virtual recipe resource that visualizes the most popular dishes by month",
         pBlurbs: [
             "UI/UX Design, Front/Backend Development",
@@ -126,15 +157,22 @@ export const projectContent = writable([
         ],
         mImage: "./assets/favoriteFoods/asparagusCap.png",
         cContent: [
-            [2, "Favorite Foods by The Months, is a data visualization project that seeks to combine the playfulness of data exploration with a traditional recipe resource."],
-            [0, "Scrolling down from the introduction page, visitors are presented a timeline of the months of the year with the trendiest foods of each month listed in descending order. Selecting a food expands the column to list specific recipes for that food. Along with a thumbnail and brief description, visitors are linked to the full recipe on NYT Cooking."],
+            [3, "PROJECT OVERVIEW"],
+            [2, "Favorite Foods by the Months is a data visualization project that seeks to combine the playfulness of data exploration with a traditional recipe resource. Instead of traditional search options, FFBTM displays the most popular foods in each month, presenting a different framework to categorize food."],
             [1, "../assets/favoriteFoods/ffbtmOverview.png"],
+            [0, "Scrolling down from the introduction page, visitors are presented a timeline of the months of the year with the trendiest foods of each month listed in descending order. Selecting a food expands the column to list specific recipes for that food. Along with a thumbnail and brief description, visitors are linked to the full recipe on NYT Cooking."],
+            [0, "Our final result seeks to modify the relationship between the visitor and the act of looking for a recipe. For most of human history, people were limited to the ingredients grown in their location and at that time of year with the recipes passed down to them. Today, globalization has given us access to nearly any food in any season with millions of recipes on the internet. We now group food with categories like cuisine, healthiness, spiciness, and so on. To some degree, factors like seasonality and local availability have become more of a preference than a restriction. Favorite Foods by the Month seeks to highlight the seasonal, monthly, or even holiday based nature of food by centering the connection between food and time once more."],
+            [3, "PROCESS OVERVIEW"],
             [1, "../assets/favoriteFoods/ffbtmDetail.png"],
+            [0, "I was primarily involved in the concept building and development of Favorite Foods by the Month. Starting with the topic of food, we started by brainstorming the different ways we could visualize an interesting narrative. After a series of iterations, we eventually settled on a theme of time and seasonality. With that in mind, we began a cycle of iteration and feedback, eventually settling on a format of displaying a timeline of the most popular aggregated foods in each month."],
+            [0, "From that point on, my primary role was in front end and backend development. On the backend side, we made use of node.js and express.js to access data from NYT API and Google Trends API for recipe data and popularity respectively. On the backend side, our primary challenge actually came from sourcing a list of foods to search with. We quickly realized it was extremely difficult to find a list of foods with the right level of specificity. Most lists we found were either extremely specific and limited, such as lists of a corporations products or nutritional in focus and too broad. To circumvent this issue, we used word processing on every NYT recipe to strip away descriptors and modifiers to create our own dataset. "],
+            [0, "On the front end, we coded everything in the website with native HTML and CSS. Originally, we had planned to create embedded graphs and visualizations with p5.js canvases, however, feedback sessions with users showed that they produced more visual clutter than useful insight. Looking back on the process with my current knowledge, using a framework like react or svelte would have sped up the development and increased our options for interaction."],
+            [3, "REFLECTION"],
             [0, "Working on Favorite Foods by The Months provided an interesting challenge from both the design and development perspectives. Iterating on the website's UI/UX, we sought to make the website as informative as possible at each stage without being overwhelming. On the development side, we learned to process data through API and to serve and display that data through the front and backend portions of a website."],
-            [0, "Our final result seeks to modify the relationship between the visitor and the act of looking for a recipe. Recipes have traditionally been passed down in a regional or familial manner. Globalization, the internet, and widespread publications changed that dynamic. Favorite Foods by The Months seeks to take this concept one step further, using data to aggregate a nationwide picture of popular foods."]
         ]
     },
     { //LOL
+        key: "LDV",
         pDescription: "A data visualization exploration of aesthetic representations of in game player data.",
         pBlurbs: [
             "UI/UX Design, Front/Backend Development",
@@ -155,6 +193,7 @@ export const projectContent = writable([
         ]
     },
     { //ORGANIC
+        key: "OFR",
         pDescription: "An ongoing exploration of producing organic form from artificial rules. This project explores the process of generating 2D and 3D forms then bringing those models into the physical world",
         pBlurbs: [
             "Coding, Making, and Prototyping",
@@ -166,11 +205,20 @@ export const projectContent = writable([
         ],
         mImage: "./assets/organicArtificial/organicArtificial.png",
         cContent: [
+            [3, "PROJECT OVERVIEW"],
+            [2, "Organic Form, Artificial Rules is an ongoing exploration of generative design and the making process. Starting as an inquiry into the mathematics behind the growth of sea shells, trees, and leaves, the theme of organic form emerging from the artificial rules has emerged again and again throughout my making process."],
+            [0, "I've chosen to explore this theme through a six stage process: Identifying a pattern of growth in nature, exploring the mathematical principles behind it, investigating the pattern through a series of sketches, exploring its construction through code, generating a 3D model, and finally 3D printing, laser cutting, and or casting a physical model. Originally starting as a semester long process, this project has become an ongoing journey since."],
+            [3, "PROCESS OVERVIEW"],
             [1, "../assets/organicArtificial/sketch2.jpeg"],
-            [1, "../assets/organicArtificial/3D Shell.JPG"]
+            [0, "My documentation of this project is still ongoing so I'll walk through an early example of my exploration: the sea shell. Starting with raw form of the seashell, I started with a series of sketches and observations of the form itself. With this in mind, I looked into the formula behind the spiral of the shell and created a 2D shell generator in Processing that also sought to include some of the randomness involved in the growth of shells in the real world."],
+            [1, "../assets/organicArtificial/3D Shell.JPG"],
+            [0, "From this 2D form, I picked a single shell and created a 3D model in Blender to 3D print, bringing it into the physical realm. With this 3D print, I created a series of negatives with silicone to produce moulds for material exploration. To complement the form and origin of the shell, I settled on using concrete and a mixture of silicone to recreate the shell. "],
+            [3, "REFLECTION"],
+            [0, "This project is important to me personally as both an exploration of a fascinating theme but also as a vehicle to explore novel ways of making and thinking. Most projects are constrained by prompts, the needs of users, and a problem to address, which is important for their effectiveness. However, the value of this exploration comes from the thinking and techniques it produces that may not be useful in the moment, but applicable in the future."]
         ]
     },
     { //PORTFOLIO
+        key: "PWS",
         pDescription: "Portfolio Website",
         pBlurbs: [
             "UI/UX Design, Front/Backend Development",
@@ -185,6 +233,7 @@ export const projectContent = writable([
         cContent: []
     },
     { //DASH
+        key: "DSH",
         pDescription: "A VUI assistant that helps children learn how to read. This prototype makes use of p5.js along with the riTa and speech libraries.",
         pBlurbs: [
             "UI/UX Design, Front/Backend Development",
@@ -206,6 +255,7 @@ export const projectContent = writable([
         ]
     },
     { //DIGITAL
+        key: "DRT",
         pDescription: "Digital Art",
         cImages: [
             "../assets/apArt/cloudBrain.jpg",
@@ -222,6 +272,7 @@ export const projectContent = writable([
         ]
     },
     { //BARILLA
+        key: "BUP",
         pDescription: "Speculative pop-up shop designed for Barilla. Visitors design a custom pasta shape and recipe for a loved one through exploring characteristics of their relationship.",
         pBlurbs: [
             "Environments Design",
@@ -239,6 +290,7 @@ export const projectContent = writable([
         ]
     },
     { //SKETCHES
+        key: "SBK",
         pDescription: "Sketchbook",
         cImages: [
             "../assets/sketchBook/sb_02.png",
@@ -265,6 +317,7 @@ export const projectContent = writable([
         ]
     },
     { //COMPUTATIONAL
+        key: "CRT",
         pDescription: "Computational Art (Processing + P5js)",
         cImages: [
             "../assets/creativeCoding/yeram.gif",
@@ -278,6 +331,7 @@ export const projectContent = writable([
         ]
     },
     { //WATER VESSEL
+        key: "VES",
         pDescription: "WATER VESSEL FORM EXPLORATION",
         cImages: [
             "../assets/waterVessel/wv_f1.jpeg",
@@ -302,4 +356,4 @@ export const projectContent = writable([
             "../assets/waterVessel/wv_s3.jpg",
         ]
     }
-])
+]

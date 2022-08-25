@@ -1,13 +1,14 @@
-<!-- SVELTE APP -->
 <script>
 	// IMPORT VARIABLES
-	import { cPage, projects } from "./store.js";
+	import { cPage, projects, pageObj } from "./store.js";
 	// IMPORT COMPONENTS
 	import SideNav from "./components/SideNav.svelte";
 	import SideDisp from "./components/SideDisp.svelte";
 	import TopNav from "./components/TopNav.svelte";
-
 	import { blur, slide } from "svelte/transition";
+
+	//ROUTING
+	// import router from "page";
 
 	let contentComponent = null;
 	let unique = {};
@@ -16,22 +17,36 @@
 		unique = {};
 	}
 
+	// routePkg.subscribe(() => {
+	// 	let url = $routePkg[0];
+	// 	let comp = $routePkg[1];
+	// 	router(url, () => page => comp);
+	// })
+
 	cPage.subscribe(() => {
 		updateContentComponent();
 		transitionContent();
 	});
 
 	export function updateContentComponent() {
-		contentComponent = projects[$cPage].comp;
+		for (let p of projects) {
+			if (p.key === $cPage) {
+				contentComponent = p.comp;
+			}
+		}
 	}
 	updateContentComponent();
 
 	let sWidth;
+	// router.start();
 </script>
+
+<!-- SVELTE APP -->
 
 <svelte:head>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="icon" type="image/png" href="../assets/navIcon/Icon.png" />
 	<link
 		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;400&family=Space+Grotesk:wght@300;700&family=Space+Mono:wght@400;700&display=swap"
 		rel="stylesheet"
@@ -43,7 +58,7 @@
 <main>
 	{#if sWidth >= 1000}
 		<SideNav />
-		<SideDisp pName={projects[$cPage].name} />
+		<SideDisp pName={$pageObj.name} />
 	{:else}
 		<TopNav />
 	{/if}

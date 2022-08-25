@@ -35,7 +35,7 @@
 
     //TOGGLING FILTERS
     function toggleFilters(n) {
-        if ($cPage === 0) {
+        if ($cPage === "WRK") {
             for (let i = 0; i < 3; i++) {
                 //BUTTON FILTERS
                 if (i == n) {
@@ -51,7 +51,7 @@
     }
 
     function AllProjects() {
-        switchPage(0);
+        switchPage("WRK");
         for (let i = 0; i < 3; i++) {
             $filters[i] = true;
         }
@@ -88,22 +88,22 @@
         {#if $fNotAll}
             <button
                 on:click={AllProjects}
-                style:background-color={$cPage != 1 ? "#373737" : "#d9d9d9"}
-                style:color={$cPage != 1 ? "white" : "black"}
+                style:background-color={$cPage != "ABT" ? "#373737" : "#d9d9d9"}
+                style:color={$cPage != "ABT" ? "white" : "black"}
                 class="section">ALL WORK</button
             >
         {:else}
             <button
                 on:click={AllProjects}
-                style:background-color={$cPage != 1 ? "#373737" : "#d9d9d9"}
-                style:color={$cPage != 1 ? "white" : "black"}
+                style:background-color={$cPage != "ABT" ? "#373737" : "#d9d9d9"}
+                style:color={$cPage != "ABT" ? "white" : "black"}
                 class="section">WORK</button
             >
         {/if}
         {#key unique}
             <div class="filter" transition:fade>
                 {#each fList as fil}
-                    {#if $cPage == 0}
+                    {#if $cPage == "WRK"}
                         <div class="bContainer">
                             <button on:click={() => toggleFilters(fil.index)}
                                 >{fil.name}</button
@@ -114,7 +114,7 @@
                                     ? fil.color
                                     : "white"}
                             />
-                            {#if $cPage != 0}
+                            {#if $cPage != "WRK"}
                                 <div class="bShield" />
                             {/if}
                         </div>
@@ -128,9 +128,9 @@
             </div>
         {/key}
         <button
-            on:click={() => switchPage(1)}
-            style:background-color={$cPage === 1 ? "#373737" : "#d9d9d9"}
-            style:color={$cPage === 1 ? "white" : "black"}
+            on:click={() => switchPage("ABT")}
+            style:background-color={$cPage === "ABT" ? "#373737" : "#d9d9d9"}
+            style:color={$cPage === "ABT" ? "white" : "black"}
             class="section">ABOUT</button
         >
     </div>

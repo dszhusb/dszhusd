@@ -10,10 +10,6 @@
         $hIcon = parseInt(Math.random() * 23);
     }
 
-    // cPage.subscribe(() => {
-    //     resetIcon();
-    // });
-
     function switchPage(n) {
         cPage.set(n);
     }
@@ -33,13 +29,13 @@
 
 <main>
     <Hoverable let:hovering={active}>
-        <div class="back" class:active on:click={() => switchPage(0)}>
+        <div class="back" class:active on:click={() => switchPage("WRK")}>
             {#if active}
                 <div class="backFill" style="background-color: {$hColor}" />
             {:else}
                 <div class="backFill" style="background-color: black" />
             {/if}
-            {#if $cPage == 0}
+            {#if $cPage == "WRK"}
                 <img src="./assets/navIcon/home.png" alt="Home" />
             {:else}
                 <img src="./assets/navIcon/back.png" alt="Page" />

@@ -60,7 +60,7 @@
             {#if $filters[p.cat]}
                 <Hoverable let:hovering={active}>
                     <div class="imgContainer" class:active>
-                        <div on:click={() => switchPage(p.link)}>
+                        <div on:click={() => switchPage(p.key)}>
                             <img
                                 src="./assets/thumbnails/{p.img}"
                                 alt={p.name}

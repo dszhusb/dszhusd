@@ -1,7 +1,7 @@
 <!-- PROJECT PAGE TEMPLATE -->
 <script>
     import PHeader from "../components/PHeader.svelte";
-    import { pPage, cPage, hColor, projectContent } from "../store.js";
+    import { pageObj, cPage, hColor, projectContent } from "../store.js";
 
     let pDescription;
     let pBlurbs;
@@ -9,13 +9,24 @@
     let mImage;
     let cContent;
 
-    pPage.subscribe(() => {
-        if ($cPage > 1) {
-            pDescription = $projectContent[$pPage].pDescription;
-            pBlurbs = $projectContent[$pPage].pBlurbs;
-            links = $projectContent[$pPage].links;
-            mImage = $projectContent[$pPage].mImage;
-            cContent = $projectContent[$pPage].cContent;
+    pageObj.subscribe(() => {
+        let assigned = false;
+        for (let cont of projectContent) {
+            if (cont.key === $cPage) {
+                pDescription = cont.pDescription;
+                pBlurbs = cont.pBlurbs;
+                links = cont.links;
+                mImage = cont.mImage;
+                cContent = cont.cContent;
+                assigned = true;
+            }
+        }
+        if (!assigned) {
+            pDescription = "";
+            pBlurbs = [];
+            links = [];
+            mImage = "";
+            cContent = [];
         }
     });
 
@@ -64,7 +75,6 @@
     <!-- CONTENT -->
     <div class="pContent">
         <div class="contCol">
-            <p class="pBolded">PROJECT OVERVIEW</p>
             {#each cContent as cont}
                 {#if cont[0] == 0}
                     <p class="contPara">
@@ -74,6 +84,8 @@
                     <p class="contPara" style="font-weight: bold;">
                         {cont[1]}
                     </p>
+                {:else if cont[0] == 3}
+                    <p class="pBolded">{cont[1]}</p>
                 {:else}
                     <img
                         src={cont[1]}
