@@ -29,7 +29,7 @@
             <div class="links">
                 <a
                     style="--hColor: {$hColor};"
-                    href="./assets/danielZhu2022.pdf"
+                    href="./assets/Daniel_Zhu_Resume.pdf"
                     target="_blank">RESUME</a
                 >
                 <a
