@@ -46,7 +46,7 @@
 <svelte:head>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link rel="icon" type="image/png" href="../assets/navIcon/Icon.png" />
+	<link rel="icon" type="image/png" href="../public/assets/navIcon/Icon.png" />
 	<link
 		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;400&family=Space+Grotesk:wght@300;700&family=Space+Mono:wght@400;700&display=swap"
 		rel="stylesheet"
