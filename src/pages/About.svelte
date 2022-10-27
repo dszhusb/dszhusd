@@ -19,17 +19,22 @@
                     style="--hColor: {$hColor};"
                     href="https://design.cmu.edu/content/environments-1"
                     >Environments Design</a
-                >
-                and
+                >,
                 <a style="--hColor: {$hColor};" href="https://www.hcii.cmu.edu/"
                     >HCI</a
-                > at Carnegie Mellon University. I enjoy blurring the line between
-                digital and physical experiences through electronics and code.
+                >, and
+                <a
+                    style="--hColor: {$hColor};"
+                    href="https://ideate.cmu.edu/undergraduate-programs/physical-computing/"
+                    >Physical Computing</a
+                >, at Carnegie Mellon University. I enjoy blurring the line
+                between digital and physical experiences through electronics and
+                code.
             </div>
             <div class="links">
                 <a
                     style="--hColor: {$hColor};"
-                    href="./assets/Daniel_Zhu_Resume.pdf"
+                    href="./assets/DanielZhuResume.pdf"
                     target="_blank">RESUME</a
                 >
                 <a
@@ -78,7 +83,7 @@
     }
 
     #aboutP {
-        max-width: 320px;
+        max-width: 410px;
 
         text-align: left;
         font-family: "IBM Plex Mono", monospace;
