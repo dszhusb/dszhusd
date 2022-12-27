@@ -1,7 +1,14 @@
 <!-- PROJECT PAGE TEMPLATE -->
 <script>
     import PHeader from "../components/PHeader.svelte";
-    import { pageObj, cPage, hColor, projectContent } from "../store.js";
+    import {
+        pageObj,
+        cPage,
+        hColor,
+        f2Color,
+        f3Color,
+        projectContent,
+    } from "../store.js";
 
     let pDescription;
     let pBlurbs;
@@ -36,17 +43,35 @@
 <svelte:window bind:outerWidth={sWidth} />
 
 <div class="project">
+    <!-- MAIN IMAGE -->
+    <img
+        src={mImage}
+        alt="Prototype ScreenCap"
+        style="border-top: solid 0.5px black; 
+        border-bottom: solid 0.5px black;"
+    />
+
     <!-- HEADER -->
     <PHeader>
         <div slot="description">{pDescription}</div>
         <div slot="links">
-            <div class="linksm1" style="--hColor: {$hColor}">
-                <a href={links[0]} target="_blank" class="pLink"
-                    >PROCESS DOCUMENTATION</a
+            <div class="linksm1">
+                <button
+                    href={links[0]}
+                    target="_blank"
+                    class="pLink"
+                    style:background-color={$f2Color}
+                    style:border-bottom="solid black 1px"
+                    on:click={() => window.open(links[0])}
+                    >PROCESS DOCUMENTATION</button
                 >
                 {#if links.length > 1}
-                    <a href={links[1]} target="_blank" class="pLink"
-                        >LIVE SITE</a
+                    <button
+                        href={links[1]}
+                        target="_blank"
+                        style:background-color={$f3Color}
+                        on:click={() => window.open(links[1])}
+                        >LIVE SITE</button
                     >
                 {/if}
             </div>
@@ -65,32 +90,63 @@
         </div>
     </PHeader>
 
-    <!-- MAIN IMAGE -->
-    <img
-        src={mImage}
-        alt="Prototype ScreenCap"
-        style="border-top: solid 0.5px black; border-bottom: solid 0.5px black;"
-    />
-
     <!-- CONTENT -->
     <div class="pContent">
         <div class="contCol">
             {#each cContent as cont}
                 {#if cont[0] == 0}
-                    <p class="contPara">
+                    <p
+                        class="contPara"
+                        style="max-width: 700px; 
+                        margin-left: auto;
+                        margin-right: auto;"
+                    >
                         {cont[1]}
                     </p>
                 {:else if cont[0] == 2}
-                    <p class="contPara" style="font-weight: bold;">
+                    <p
+                        class="contPara"
+                        style="font-weight: bold; 
+                        font-size: 20px;"
+                    >
                         {cont[1]}
                     </p>
                 {:else if cont[0] == 3}
                     <p class="pBolded">{cont[1]}</p>
+                {:else if cont[0] == 4}
+                    <div
+                        style="display: flex; 
+                        flex-wrap: wrap; 
+                        border: solid black 0.5px; 
+                        margin: 40px 0 40px 0;"
+                    >
+                        <div style="flex: 50%;">
+                            {#each cont[1] as iLink}
+                                <img
+                                    src={iLink}
+                                    alt="ProjectScreencap"
+                                    style="vertical-align: middle; 
+                                    border: solid black 0.5px;"
+                                />
+                            {/each}
+                        </div>
+                        <div style="flex: 50%;">
+                            {#each cont[2] as iLink}
+                                <img
+                                    src={iLink}
+                                    alt="ProjectScreencap"
+                                    style="vertical-align: middle; 
+                                    border: solid black 0.5px;"
+                                />
+                            {/each}
+                        </div>
+                    </div>
                 {:else}
                     <img
                         src={cont[1]}
                         alt="ProjectScreencap"
-                        style="margin: 30px 0 30px 0; border: 1px black solid;"
+                        style="margin: 30px 0 30px 0; 
+                        border: 1px black solid;"
                     />
                 {/if}
             {/each}
@@ -114,31 +170,30 @@
 
     /* LINKS */
     .linksm1 {
-        text-align: left;
+        text-align: center;
     }
 
-    .linksm1 a {
-        text-align: right;
+    .linksm1 button {
+        text-align: center;
         display: block;
-        color: var(--hColor);
-    }
-
-    .linksm1 a:hover {
         color: black;
+        border: none;
+
+        margin: 0;
+        width: 300px;
+        height: 50px;
+        border-radius: 0;
     }
 
-    .pLink {
+    .linksm1 button:hover {
+        text-decoration: underline;
         color: black;
-    }
-
-    .pLink:hover {
-        color: var(--hColor);
     }
 
     /* CONTENT */
 
     .pContent {
-        padding: 0px 40px 80px 40px;
+        padding: 48px 40px 80px 40px;
     }
 
     .pBolded {
@@ -153,7 +208,7 @@
 
     .contCol {
         max-width: 800px;
-        margin-left: 20px;
+        margin: auto;
     }
 
     @media (max-width: 1000px) {

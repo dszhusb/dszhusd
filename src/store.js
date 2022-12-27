@@ -72,6 +72,7 @@ export let projects = [
     { name: "WORK", cat: 3, comp: Work, key: "WRK" },
     { name: "ABOUT", cat: 3, comp: About, key: "ABT" },
     { name: "TOBI", cat: 0, img: "tobiNail.png", comp: ProjectTemplate, key: "TBI" },
+    { name: "HUMANIZING COMMENT SECTIONS", cat: 0, img: "hfiTn.png", comp: ProjectTemplate, key: "HFI" },
     { name: "SOMA", cat: 0, img: "somaNail.png", comp: ProjectTemplate, key: "SMA" },
     { name: "FAVORITE FOODS BY THE MONTH", cat: 0, img: "favoriteFoodsNail.png", comp: ProjectTemplate, key: "FFM" },
     { name: "SKETCHBOOK", cat: 2, img: "sketchNail.png", comp: GalleryTemplate, key: "SBK" },
@@ -102,17 +103,38 @@ export const projectContent = [
         cContent: [
             [3, "PROJECT OVERVIEW"],
             [2, "TOBI is an electronic organism that lives and breathes the electronic signals in the environment around it. TOBI's body is separated into 3 “organs” with the motion of each organ representing a type of electronic data: WiFi strength, bluetooth connections, and electromagnetic noise. The rise and fall in each type of data are manifest in the movement of their respective organs each modeled off a real world animal or organ."],
-            [0, "Built for shared spaces, TOBI was designed as a colony of organisms spread throughout a building's rooms and hallways. Individually, each member reveals the electronic signals in the immediate area around it. This gives users insight into specific metrics like the Wifi strength in a particular room or local electrical activity. As a colony, however, TOBI provides a picture of the state of a building as a whole, one that's experienced by observing the changes in data from room to room, highlighting the highly spacial nature of the data."],
             [1, "../assets/tobi/lungs.gif"],
+            [0, "Built for shared spaces, TOBI was designed as a colony of organisms spread throughout a building's rooms and hallways. Individually, each member reveals the electronic signals in the immediate area around it. This gives users insight into specific metrics like the Wifi strength in a particular room or local electrical activity. As a colony, however, TOBI provides a picture of the state of a building as a whole, one that's experienced by observing the changes in data from room to room, highlighting the highly spacial nature of the data."],
             [0, "At this point you might ask “why organic forms?” The first reason has to do with the nature of the data. Although we might think of the electronic world as being precise and exacting, it is also invisible and alien to our biological senses in many ways. Representing something like electromagnetic noise on a graph provides an precise depiction of the data. However, to someone without the proper context or data literacy skills that graph doesn't mean much. Some meaning is implied when the data is high or low, however, there is no emotional weight attached to number or real world connection."],
             [0, "When I chose to represent these electronics data with organic movement, I hoped to sacrifice the precision of a graph for our intuitive sense for how a living organ, or organism should move. Indeed, while TOBI might not be as immediately useful as a data analytics tool, I hope it will make data more tangible, evocative, and relatable. TOBI’s long term value as a tool increases over time as a user develops a closer relationship with the organs and what their movements represent. However, its immediate value comes from the striking contrast it poses between artificial input and organic representation, forcing users to ask questions about how we think about and interact the invisible electronic environment around us."],
-            [3, "PROCESS OVERVIEW"],
             [1, "../assets/tobi/sket.jpg"],
             [0, "TOBI's organs were inspired by work in the soft robotics field. Each organ is a hollow silicone structure with multiple chambers that are pneumatically actuated by air pumps and valves controlled via Arduino. Designing the form and movement of each organ, I drew from various forms I saw in the real world, particularly in sea creatures and microbiology as well as normal human organs. I looked for a range of forms and actuation that could accommodate discrete and continuous data with a consistent aesthetic while also maintaining a certain degree of relatability."],
             [1, "../assets/tobi/bioRef.png"],
             [0, "With the forms mapped out, I moulded and casted each organ dozens of times to nail the process and create the visceral effects I wanted. I also needed assemble the electronics and physical housings complete TOBI's physical form."],
-            [3, "REFLECTION"],
             [0, "This project was an opportunity to push my knowledge and technical skills with technologies like Arduino and soft robotics manufacturing, but also softer skills like communicating an abstract concept in a intriguing way and designing a unique visceral experience. While I am happy with the result as a whole, there is still so much potential in further developing both TOBI’s organs and  everything surrounding them, making TOBI more communicative as a data visualization tool and a thought provoking as an installation."]
+        ]
+    },
+    { //HFI
+        key: "HFI",
+        pDescription: "Humanizing Comment Sections on the Internet",
+        pBlurbs: [
+            "Research, UI/UX Design, Prototyping",
+            "N/A",
+            "6 weeks"
+        ],
+        links: [
+            "",
+        ],
+        mImage: "./assets/thumbnails/hfiTn.png",
+        cContent: [
+            [3, "PROJECT OVERVIEW"],
+            [1, "./assets/historyFutureInt/figures.png"],
+            [3, "This project is still under construction, send an email to learn more!"],
+            [0, "While today's comment sections are undeniable effective to some degree in affording conversations between strangers, a number of issues have emerged from the format."],
+            [0, "Instead of promoting constructive discussions about the content they are built around, comment sections often become hotbed for toxicity and serve to generate conflict and a polarized audience, especially in political situations."],
+            [0, "Additionally, most people feel disengaged from the both comment sections themselves, with most indicating they did not feel a connection to commenters with an even smaller minority of users actually participating in conversations within comment sections."],
+            [0, "The goal of this project is to find ways to add some of the nuance of face to face conversations back into comment sections. Specifically, I am looking at gestures, tone, and emotion. This prototype takes the form of an web extension that adds a layer of metadata on top of existing comment sections. Combining gesture and emotion into an avatar that gestures along with a sentence as well as an optional audio component."],
+            [0, "Users would be able to start from a variety of input devices. For example, users with a webcam and microphone would be able to generate gestures and audio captured from those input devices. Gestures could be translated into avatar movement and audio could be transcribed to also have a corresponding text format. Conversely, a user with only a keyboard might indicate an emotion or tone in a sentence for the avatar to generate gestures and movements based off the text and indicated tone."],
         ]
     },
     { //SOMA
@@ -125,7 +147,6 @@ export const projectContent = [
         ],
         links: [
             "https://puddle-griffin-721.notion.site/PROJECT-02-Environments-Studio-IV-366560df767742cbbdadbdb9188bebc8",
-            "https://dszhusb.github.io/CDT-Sandbox/",
         ],
         mImage: "./assets/thumbnails/somaNail.png",
         cContent: [
@@ -133,13 +154,11 @@ export const projectContent = [
             [2, "SOMA is a dynamic, expressive puppet that derives its movements not from a puppeteer manipulating its limbs with strings, but the raw audio input of speech. As you talk to SOMA, it manifests the cadence, emotion, and expressiveness of your speech in its posture and gestures in real time. Rather than being a traditional problem and solution design challenge, SOMA is an exploration into how gestures and body language are inherently related to our understanding of language and communication. "],
             [0, "Between our different modes of communication, nonverbal factors like body language, gestures, and facial expressions have been shown to carry much more meaning then the actual semantic meaning of the words we speak. However, these aspects of communication often go unnoticed as they’re processed by our subconscious minds. While we typically use these nonverbal forms of communication to contextualize the verbal ones, we wanted to ask: can we reconstruct the gestures and body language that go along with a voice from a voice alone?"],
             [0, "Along with the technical details of creating gestures from speech itself, we needed to create an avatar capable of expressing a dynamic range of motion and emotion to convey them. We settled on an inflatable puppet that could stretch and bend and bounce across a full range of expression. To pilot this inflatable, we created a system of pulleys and strings controlled by and Arduino that’s fed data from our JS site that processes the audio input."],
-            [3, "PROCESS OVERVIEW"],
             [1, "../assets/soma/gestures.png"],
             [0, "After the concept development stage, my primary role in this project was to develop the Arduino controllers and half of the backend JS that derived cadence, emotion, and intensity from the raw data. "],
             [1, "../assets/soma/chart.png"],
             [0, "Aside from the technical experienced I gained with Arduino, assembling physical prototypes, and backend development, I learned most about abstracting human gestures and poses. To recreate the range of gestures SOMA would need to express, I studied gestures and body language both in research and in the people around me. With these references in mind, we created a range of behaviors adapted for SOMA that could work across the continuous spectrum of inputs. "],
             [1, "../assets/soma/proto.png"],
-            [3, "REFLECTION"],
             [0, "By itself, SOMA is an amusing and hopefully thought provoking experiment. However, I believe what we learned about producing body language and gesture from speech, even in the limited was SOMA achieved it, can be applicable in a broad variety of situations. The same techniques could be applied to creating more expressive digital avatars for online communication and so much more!"]
         ]
     },
@@ -153,7 +172,7 @@ export const projectContent = [
         ],
         links: [
             "https://dandy-catcher-a71.notion.site/Favorite-Foods-By-The-Month-8fe21323bd3e422eb1f7cedf1439a521",
-            "https://dszhusb.github.io/CDT-Sandbox/",
+            "https://dszhusb.github.io/CDT-Sandbox/"
         ],
         mImage: "./assets/favoriteFoods/asparagusCap.png",
         cContent: [
@@ -162,13 +181,14 @@ export const projectContent = [
             [1, "../assets/favoriteFoods/ffbtmOverview.png"],
             [0, "Scrolling down from the introduction page, visitors are presented a timeline of the months of the year with the trendiest foods of each month listed in descending order. Selecting a food expands the column to list specific recipes for that food. Along with a thumbnail and brief description, visitors are linked to the full recipe on NYT Cooking."],
             [0, "Our final result seeks to modify the relationship between the visitor and the act of looking for a recipe. For most of human history, people were limited to the ingredients grown in their location and at that time of year with the recipes passed down to them. Today, globalization has given us access to nearly any food in any season with millions of recipes on the internet. We now group food with categories like cuisine, healthiness, spiciness, and so on. To some degree, factors like seasonality and local availability have become more of a preference than a restriction. Favorite Foods by the Month seeks to highlight the seasonal, monthly, or even holiday based nature of food by centering the connection between food and time once more."],
-            [3, "PROCESS OVERVIEW"],
-            [1, "../assets/favoriteFoods/ffbtmDetail.png"],
+            [4, ["../assets/favoriteFoods/ffbtmSC1.png","../assets/favoriteFoods/ffbtmSC3.png"], ["../assets/favoriteFoods/ffbtmSC2.png","../assets/favoriteFoods/ffbtmSC4.png"]],
             [0, "I was primarily involved in the concept building and development of Favorite Foods by the Month. Starting with the topic of food, we started by brainstorming the different ways we could visualize an interesting narrative. After a series of iterations, we eventually settled on a theme of time and seasonality. With that in mind, we began a cycle of iteration and feedback, eventually settling on a format of displaying a timeline of the most popular aggregated foods in each month."],
             [0, "From that point on, my primary role was in front end and backend development. On the backend side, we made use of node.js and express.js to access data from NYT API and Google Trends API for recipe data and popularity respectively. On the backend side, our primary challenge actually came from sourcing a list of foods to search with. We quickly realized it was extremely difficult to find a list of foods with the right level of specificity. Most lists we found were either extremely specific and limited, such as lists of a corporations products or nutritional in focus and too broad. To circumvent this issue, we used word processing on every NYT recipe to strip away descriptors and modifiers to create our own dataset. "],
+            [1, "../assets/favoriteFoods/process.png"],
             [0, "On the front end, we coded everything in the website with native HTML and CSS. Originally, we had planned to create embedded graphs and visualizations with p5.js canvases, however, feedback sessions with users showed that they produced more visual clutter than useful insight. Looking back on the process with my current knowledge, using a framework like react or svelte would have sped up the development and increased our options for interaction."],
-            [3, "REFLECTION"],
             [0, "Working on Favorite Foods by The Months provided an interesting challenge from both the design and development perspectives. Iterating on the website's UI/UX, we sought to make the website as informative as possible at each stage without being overwhelming. On the development side, we learned to process data through API and to serve and display that data through the front and backend portions of a website."],
+            [1, "../assets/favoriteFoods/visualSystem.png"],
+            [1, "../assets/favoriteFoods/ffbtmDetail.png"]
         ]
     },
     { //LOL
@@ -194,11 +214,11 @@ export const projectContent = [
     },
     { //ORGANIC
         key: "OFR",
-        pDescription: "An ongoing exploration of producing organic form from artificial rules. This project explores the process of generating 2D and 3D forms then bringing those models into the physical world",
+        pDescription: "An ongoing exploration of producing organic form through computational means.",
         pBlurbs: [
             "Coding, Making, and Prototyping",
             "N/A",
-            "6 weeks"
+            "6 weeks -> ∞"
         ],
         links: [
             "https://dandy-catcher-a71.notion.site/Favorite-Foods-By-The-Month-8fe21323bd3e422eb1f7cedf1439a521",
@@ -208,12 +228,10 @@ export const projectContent = [
             [3, "PROJECT OVERVIEW"],
             [2, "Organic Form, Artificial Rules is an ongoing exploration of generative design and the making process. Starting as an inquiry into the mathematics behind the growth of sea shells, trees, and leaves, the theme of organic form emerging from the artificial rules has emerged again and again throughout my making process."],
             [0, "I've chosen to explore this theme through a six stage process: Identifying a pattern of growth in nature, exploring the mathematical principles behind it, investigating the pattern through a series of sketches, exploring its construction through code, generating a 3D model, and finally 3D printing, laser cutting, and or casting a physical model. Originally starting as a semester long process, this project has become an ongoing journey since."],
-            [3, "PROCESS OVERVIEW"],
             [1, "../assets/organicArtificial/sketch2.jpeg"],
             [0, "My documentation of this project is still ongoing so I'll walk through an early example of my exploration: the sea shell. Starting with raw form of the seashell, I started with a series of sketches and observations of the form itself. With this in mind, I looked into the formula behind the spiral of the shell and created a 2D shell generator in Processing that also sought to include some of the randomness involved in the growth of shells in the real world."],
             [1, "../assets/organicArtificial/3D Shell.JPG"],
             [0, "From this 2D form, I picked a single shell and created a 3D model in Blender to 3D print, bringing it into the physical realm. With this 3D print, I created a series of negatives with silicone to produce moulds for material exploration. To complement the form and origin of the shell, I settled on using concrete and a mixture of silicone to recreate the shell. "],
-            [3, "REFLECTION"],
             [0, "This project is important to me personally as both an exploration of a fascinating theme but also as a vehicle to explore novel ways of making and thinking. Most projects are constrained by prompts, the needs of users, and a problem to address, which is important for their effectiveness. However, the value of this exploration comes from the thinking and techniques it produces that may not be useful in the moment, but applicable in the future."]
         ]
     },
@@ -247,8 +265,8 @@ export const projectContent = [
         mImage: "./assets/dash/dashNail.png",
         cContent: [
             [2, "According to UNESCO, in 2020 the number of children experiencing reading difficulties rose from 460 million to 584 million. The rise of more than 20%, wiped out two decades of education gains. To address this growing problem, we decided to create an intelligent assistant to support children and their parents/teachers as they learn to read books aloud."],
-            [0, "Right now, there are plenty other apps that children can use to read. But with the addition of VUI, guidance can be customized to respond immediately to a child's specific needs. The goal for this project was to prototype a responsive VUI that responds to a child's input, be it asking a question, pausing on a sentence, or mispronouncing a word."],
             [1, "../assets/dash/dash.png"],
+            [0, "Right now, there are plenty other apps that children can use to read. But with the addition of VUI, guidance can be customized to respond immediately to a child's specific needs. The goal for this project was to prototype a responsive VUI that responds to a child's input, be it asking a question, pausing on a sentence, or mispronouncing a word."],
             [0, "Our VUI has two primary components, Dash (the VUI itself) and a word pronunciation aid. Users choose a book from the library to read aloud. As they progress, Dash will be on standby to answer questions and help along the way. When a spelling or pronunciation question is asked, Dash will be replaced with our pronunciation aid."],
             [1, "../assets/dash/Reading.png"],
             [0, "Dash was written primarily with p5.js, p5 speech, and riTa. We embedded a p5.js canvas into an html page to create the final prototype."]

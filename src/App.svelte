@@ -1,6 +1,6 @@
 <script>
 	// IMPORT VARIABLES
-	import { cPage, projects, pageObj } from "./store.js";
+	import { cPage, projects, pageObj, hIcon } from "./store.js";
 	// IMPORT COMPONENTS
 	import SideNav from "./components/SideNav.svelte";
 	import SideDisp from "./components/SideDisp.svelte";
@@ -46,7 +46,7 @@
 <svelte:head>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link rel="icon" type="image/png" href="../public/assets/navIcon/Icon.png" />
+	<link rel="icon" type="image/png" href="../public/assets/dispIcon{hIcon}.png" />
 	<link
 		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;400&family=Space+Grotesk:wght@300;700&family=Space+Mono:wght@400;700&display=swap"
 		rel="stylesheet"
@@ -76,7 +76,6 @@
 		text-align: center;
 		background-color: white;
 		font-family: "Space Mono", monospace;
-		border: 1px solid black;
 	}
 
 	.content {

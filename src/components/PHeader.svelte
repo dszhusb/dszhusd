@@ -5,30 +5,30 @@
     <h1>
       <slot name="description" />
     </h1>
-    {#if $$slots.links}
+  </div>
+  {#if $$slots.links}
+    <div class="desc">
       <div class="hRow" style="max-width: 850px;">
-        <div class="hCol">
+        <div
+          class="hCol"
+          style="border-right: solid black 1px; background-color: #EEEEEE;"
+        >
           <slot name="links" />
         </div>
-        <div class="hCol">
+        <div class="hCol" style="padding-top: 20px; height: 80px">
           <slot name="pData" />
         </div>
       </div>
-    {:else}
-      <div class="filler" />
-    {/if}
-  </div>
+    </div>
+  {:else}
+    <!-- <div class="filler" /> -->
+  {/if}
 </div>
 
 <style>
   .PHeader {
-    border-bottom: 0.5px solid black;
-    padding-top: 30px;
+    border-bottom: 1px solid black;
     background-color: white;
-  }
-
-  .header {
-    padding: 0 40px 0 40px;
   }
 
   h1 {
@@ -39,22 +39,25 @@
     font-family: "Space Grotesk";
     font-weight: 700;
     font-size: 32px;
+    padding: 40px 40px 40px 40px;
 
     text-transform: uppercase;
   }
 
+  .desc {
+    width: 100%;
+    border-top: solid black 1px;
+  }
+
   .hRow {
-    margin-top: 30px;
-    margin-bottom: 20px;
     display: flex;
-    column-gap: 40px;
+    column-gap: 36px;
   }
 
   .hCol {
     font-family: "IBM Plex Mono";
     font-size: 16px;
     font-weight: normal;
-    padding: 0 0 20px 0;
   }
 
   .filler {

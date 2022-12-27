@@ -69,7 +69,8 @@
                                 {#if active}
                                     <div
                                         class="text"
-                                        style="color: {$hColor}; text-decoration: underline;"
+                                        style="color: {$hColor}; 
+                                        text-decoration: underline;"
                                     >
                                         {p.name}
                                     </div>
@@ -100,7 +101,6 @@
         width: 100%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-
         font-family: "Space Mono";
     }
 
@@ -152,7 +152,7 @@
 
     .imgContainer img {
         width: 100%;
-        border: solid 1px black;
+        border: solid 0.5px black;
         display: block;
     }
 

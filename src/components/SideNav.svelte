@@ -88,14 +88,14 @@
         {#if $fNotAll}
             <button
                 on:click={AllProjects}
-                style:background-color={$cPage != "ABT" ? "#373737" : "#d9d9d9"}
+                style:background-color={$cPage != "ABT" ? "#373737" : "#EEEEEE"}
                 style:color={$cPage != "ABT" ? "white" : "black"}
                 class="section">ALL WORK</button
             >
         {:else}
             <button
                 on:click={AllProjects}
-                style:background-color={$cPage != "ABT" ? "#373737" : "#d9d9d9"}
+                style:background-color={$cPage != "ABT" ? "#373737" : "#EEEEEE"}
                 style:color={$cPage != "ABT" ? "white" : "black"}
                 class="section">WORK</button
             >
@@ -129,7 +129,7 @@
         {/key}
         <button
             on:click={() => switchPage("ABT")}
-            style:background-color={$cPage === "ABT" ? "#373737" : "#d9d9d9"}
+            style:background-color={$cPage === "ABT" ? "#373737" : "#EEEEEE"}
             style:color={$cPage === "ABT" ? "white" : "black"}
             class="section">ABOUT</button
         >
@@ -157,7 +157,7 @@
         width: 100%;
         margin: 0;
 
-        border: solid 1px black;
+        border: solid 0.5px black;
         border-radius: 0;
     }
 

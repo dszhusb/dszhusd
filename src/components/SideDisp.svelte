@@ -5,25 +5,13 @@
     import { elasticOut } from "svelte/easing";
     import { fade } from "svelte/transition";
 
-    $hIcon = parseInt(Math.random(23));
+    $hIcon = 22;//Math.floor(Math.random() * 23);
     export function resetIcon() {
-        $hIcon = parseInt(Math.random() * 23);
+        $hIcon = Math.floor(Math.random() * 23);
     }
 
     function switchPage(n) {
         cPage.set(n);
-    }
-
-    function jiggle(node, { duration }) {
-        return {
-            duration,
-            css: (t) => {
-                const eased = elasticOut(t);
-
-                return `
-                    transform: rotate(${eased * t}deg);`;
-            },
-        };
     }
 </script>
 
