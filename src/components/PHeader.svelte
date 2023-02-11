@@ -59,8 +59,4 @@
     font-size: 16px;
     font-weight: normal;
   }
-
-  .filler {
-    height: 30px;
-  }
 </style>

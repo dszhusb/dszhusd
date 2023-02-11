@@ -5,7 +5,7 @@
     import { elasticOut } from "svelte/easing";
     import { fade } from "svelte/transition";
 
-    $hIcon = 22;//Math.floor(Math.random() * 23);
+    $hIcon = 2;//Math.floor(Math.random() * 23);
     export function resetIcon() {
         $hIcon = Math.floor(Math.random() * 23);
     }
@@ -13,6 +13,8 @@
     function switchPage(n) {
         cPage.set(n);
     }
+
+    
 </script>
 
 <main>

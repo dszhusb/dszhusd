@@ -20,6 +20,7 @@ export const pageObj = derived(cPage, function ($cPage) {
             }
         }
     });
+    
 export const pCat = derived(pageObj, $pageObj => $pageObj.cat);
 export const filters = writable([true, true, true]);
 export const fNotAll = derived(filters, $filters => $filters.includes(false));
@@ -87,7 +88,7 @@ export let projects = [
 ];
 
 //Project Contents
-export const projectContent = [
+export const projectContent = [//hardcoding structures is OK in the short term, but you should replace with a load from json/request
     { //TOBI
         key: "TBI",
         pDescription: "TOBI: an electronic organism that reveals electronic signals in its environment",
