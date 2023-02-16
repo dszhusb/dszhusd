@@ -17,7 +17,7 @@
         let bg, sd;
 
         p5.setup = () => {
-            p5.createCanvas(cWidth - 320, cHeight, "WEBGL");
+            p5.createCanvas(cWidth, cHeight, "WEBGL");
 
             positions = [];
             paths = [];

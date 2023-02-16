@@ -188,9 +188,9 @@
 
     .fIndicator {
         position: absolute;
-        left: 1px;
-        top: 1px;
-        bottom: 1px;
+        left: 0.5px;
+        top: 0.5px;
+        bottom: 0.5px;
         width: 20px;
 
         border-right: solid black 1px;

@@ -1,20 +1,28 @@
 <script>
     export let pName;
-    import { cPage, hIcon, hColor } from "../store.js";
+    import { cPage, hIcon, hColor, f3Color } from "../store.js";
     import Hoverable from "./Hoverable.svelte";
-    import { elasticOut } from "svelte/easing";
-    import { fade } from "svelte/transition";
+    import { fade, blur } from "svelte/transition";
 
-    $hIcon = 2;//Math.floor(Math.random() * 23);
+    let clickVisible = false;
+    let beenClicked = false;
+
+    $hIcon = Math.floor(Math.random() * 23);
     export function resetIcon() {
         $hIcon = Math.floor(Math.random() * 23);
+        clickVisible = false;
+        beenClicked = true;
     }
 
     function switchPage(n) {
         cPage.set(n);
     }
 
-    
+    cPage.subscribe(() => {
+        if (Math.random() >= 0.5 && beenClicked == false) {
+            clickVisible = true;
+        }
+    });
 </script>
 
 <main>
@@ -33,12 +41,19 @@
         </div>
     </Hoverable>
     <div>
-        <p>{pName}</p>
+        <p id="sideways">{pName}</p>
     </div>
     <div class="trinket" on:click={() => resetIcon()} style="margin-top: 10px;">
-        <img src="./assets/dispIcon/{$hIcon}.png" alt="Home" />
+        <img src="./image/{$hIcon}.png" alt="Home" />
         <div class="overlay" />
     </div>
+    {#if clickVisible == true}
+        <div class="clickMe" transition:fade="{{duration:500}}" style:background-color={$f3Color}>
+            <p style="margin-top: 8px;">
+                Click me!!! ↑
+            </p>
+        </div>
+    {/if}
 </main>
 
 <style>
@@ -86,7 +101,18 @@
         display: block;
     }
 
-    p {
+    .clickMe {
+        position: absolute;
+        margin-top: 75px;
+        left: -67px;
+        width: 125px;
+        height: 40px;
+
+        border: 1px solid black;
+        font-family: 'Space Grotesk';
+    }
+
+    #sideways {
         writing-mode: vertical-rl;
         text-orientation: sideways;
 

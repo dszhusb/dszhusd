@@ -54,7 +54,7 @@
             </div>
             <div class="nav" id="linkCont">
                 <div class="bContainer">
-                    <a href="./assets/DanielZhuResume.pdf" target="_blank">
+                    <a href="./assets/DanielZhuDesign.pdf" target="_blank">
                         <button
                             style="background-color:{'#373737'}; 
                             color:white">RESUME</button
@@ -114,7 +114,7 @@
             <div class="links">
                 <a
                     style="--hColor: {$hColor};"
-                    href="./assets/DanielZhuResume.pdf"
+                    href="./assets/DanielZhuDesign.pdf"
                     target="_blank">RESUME</a
                 >
                 <a

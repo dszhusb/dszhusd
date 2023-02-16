@@ -16,6 +16,8 @@
     let mImage;
     let cContent;
 
+    let endBuff = false;
+
     pageObj.subscribe(() => {
         let assigned = false;
         for (let cont of projectContent) {
@@ -34,6 +36,14 @@
             links = [];
             mImage = "";
             cContent = [];
+        }
+
+        if (assigned) {
+            if (cContent[cContent.length - 1][0] != 1) {
+            endBuff = true;
+            }
+        } else {
+            endBuff = false;
         }
     });
 
@@ -70,8 +80,7 @@
                         href={links[1]}
                         target="_blank"
                         style:background-color={$f3Color}
-                        on:click={() => window.open(links[1])}
-                        >LIVE SITE</button
+                        on:click={() => window.open(links[1])}>LIVE SITE</button
                     >
                 {/if}
             </div>
@@ -92,65 +101,80 @@
 
     <!-- CONTENT -->
     <div class="pContent">
-        <div class="contCol">
+        <div>
             {#each cContent as cont}
+                <!-- Paragraph -->
                 {#if cont[0] == 0}
-                    <p
-                        class="contPara"
-                        style="max-width: 700px; 
-                        margin-left: auto;
-                        margin-right: auto;"
-                    >
+                    <p class="contPara" style="margin-bottom: 23px">
                         {cont[1]}
                     </p>
+                    <!-- Bolded Paragraph -->
                 {:else if cont[0] == 2}
                     <p
                         class="contPara"
-                        style="font-weight: bold; 
-                        font-size: 20px;"
+                        style="
+                            font-weight: bold; 
+                            font-size: 20px;
+                            max-width: 600px;
+                            margin-bottom: 80px;"
                     >
                         {cont[1]}
                     </p>
+                    <!-- Section Title -->
                 {:else if cont[0] == 3}
-                    <p class="pBolded">{cont[1]}</p>
+                    <div class="contPara">
+                        <p class="pBolded">{cont[1]}</p>
+                    </div>
+                    <!-- Images -->
                 {:else if cont[0] == 4}
                     <div
                         style="display: flex; 
                         flex-wrap: wrap; 
-                        border: solid black 0.5px; 
-                        margin: 40px 0 40px 0;"
+                        border-top: solid black 0.5px; 
+                        border-bottom: solid black 0.5px; 
+                        margin: 80px 0 20px 0;"
                     >
                         <div style="flex: 50%;">
-                            {#each cont[1] as iLink}
+                            {#each cont[2] as iLink}
                                 <img
                                     src={iLink}
-                                    alt="ProjectScreencap"
+                                    alt={cont[1]}
                                     style="vertical-align: middle; 
                                     border: solid black 0.5px;"
                                 />
                             {/each}
                         </div>
                         <div style="flex: 50%;">
-                            {#each cont[2] as iLink}
+                            {#each cont[3] as iLink}
                                 <img
                                     src={iLink}
-                                    alt="ProjectScreencap"
+                                    alt={cont[1]}
                                     style="vertical-align: middle; 
                                     border: solid black 0.5px;"
                                 />
                             {/each}
                         </div>
                     </div>
+                    <p class="caption">
+                        {cont[1]}
+                    </p>
                 {:else}
                     <img
-                        src={cont[1]}
-                        alt="ProjectScreencap"
-                        style="margin: 30px 0 30px 0; 
-                        border: 1px black solid;"
+                        src={cont[2]}
+                        alt={cont[1]}
+                        style="margin: 80px 0 30px 0; 
+                        border-top: 1px black solid;
+                        border-bottom: 1px black solid;"
                     />
+                    <p class="caption">
+                        {cont[1]}
+                    </p>
                 {/if}
             {/each}
         </div>
+        {#if endBuff == true}
+            <div class="endBuffer"/>
+        {/if}
     </div>
 </div>
 
@@ -193,7 +217,7 @@
     /* CONTENT */
 
     .pContent {
-        padding: 48px 40px 80px 40px;
+        padding-top: 60px;
     }
 
     .pBolded {
@@ -202,19 +226,26 @@
 
     .contPara {
         font-family: "Space Grotesk";
-        line-height: 145%;
+        line-height: 160%;
         font-size: 16px;
-    }
-
-    .contCol {
-        max-width: 800px;
+        max-width: 700px;
         margin: auto;
     }
 
+    .caption {
+        font-family: "Space Grotesk";
+        text-align: right;
+        margin: 0 25px 30px 0;
+        font-weight: light;
+        font-size: 16px;
+        color: #302f2f;
+    }
+    
+    .endBuffer {
+        height: 100px;
+        width: 100%;
+    }
+
     @media (max-width: 1000px) {
-        .contCol {
-            margin: auto;
-            max-width: 600px;
-        }
     }
 </style>
