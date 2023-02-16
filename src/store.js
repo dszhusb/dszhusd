@@ -11,6 +11,9 @@ import ProjectTemplate from "./pages/ProjectTemplate.svelte";
 import GalleryTemplate from "./pages/GalleryTemplate.svelte";
 import Construction from "./pages/Construction.svelte";
 
+//Code Sketches
+import TakeShell from "./components/TakeShell.svelte";
+
 //PAGE VARIABLES
 export const cPage = writable("WRK");
 export const pageObj = derived(cPage, function ($cPage) {
@@ -239,6 +242,7 @@ export const projectContent = [//hardcoding structures is OK in the short term, 
         cContent: [
             [2, "Organic Form, Artificial Rules is an ongoing exploration of generative design and making."],
             [4, "Early Shell Generation Exploration", ["../assets/organicArtificial/3D Shell-3.jpg"], ["../assets/organicArtificial/spiralConstruction.png"]],
+            [5, "Click for a new shell. Press 's' to save your own shell!", {comp: TakeShell}],
             [3, "PROJECT OVERVIEW"],
             [0, "Starting as an inquiry into the mathematics behind the growth of sea shells, trees, and leaves, the theme of organic form emerging from the artificial rules has emerged again and again throughout my making process."],
             [0, "I've chosen to explore this theme through a six stage process: Identifying a pattern of growth in nature, exploring the mathematical principles behind it, investigating the pattern through a series of sketches, exploring its construction through code, generating a 3D model, and finally 3D printing, laser cutting, and or casting a physical model. Originally starting as a semester long process, this project has become an ongoing journey since."],

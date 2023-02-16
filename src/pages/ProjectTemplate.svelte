@@ -40,7 +40,7 @@
 
         if (assigned) {
             if (cContent[cContent.length - 1][0] != 1) {
-            endBuff = true;
+                endBuff = true;
             }
         } else {
             endBuff = false;
@@ -126,6 +126,11 @@
                         <p class="pBolded">{cont[1]}</p>
                     </div>
                     <!-- Images -->
+                {:else if cont[0] == 5}
+                    <svelte:component this={cont[2].comp} />
+                    <p class="caption" style="text-align: center; margin-bottom:50px;">
+                        {cont[1]}
+                    </p>
                 {:else if cont[0] == 4}
                     <div
                         style="display: flex; 
@@ -173,7 +178,7 @@
             {/each}
         </div>
         {#if endBuff == true}
-            <div class="endBuffer"/>
+            <div class="endBuffer" />
         {/if}
     </div>
 </div>
@@ -240,7 +245,7 @@
         font-size: 16px;
         color: #302f2f;
     }
-    
+
     .endBuffer {
         height: 100px;
         width: 100%;
