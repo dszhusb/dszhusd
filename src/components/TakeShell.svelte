@@ -2,8 +2,8 @@
 <script>
     import P5 from "p5-svelte";
 
-    let cWidth = 500;
-    let cHeight = 500;
+    let cWidth = 800;
+    let cHeight = 800;
 
     const sketch = (p5) => {
         let shells = [];
@@ -17,7 +17,8 @@
         let bg, sd;
 
         p5.setup = () => {
-            p5.createCanvas(cWidth, cHeight, "WEBGL");
+            p5.createCanvas(cWidth, cHeight, "P2D");
+            p5.frameRate(20);
 
             positions = [];
             paths = [];
@@ -25,11 +26,7 @@
             shells = findShells(nShells);
             for (let i = 0; i < nShells; i++) {
                 shells[i].initPoints();
-                let p = p5.createVector(
-                    0.5 * cWidth,
-                    0.5 * cHeight,
-                    0
-                );
+                let p = p5.createVector(0.5 * cWidth, 0.5 * cHeight, 0);
                 let pa = p5.createVector(p5.random(-1, 1), p5.random(0, 1));
                 positions.push(p);
                 paths.push(pa);
@@ -38,19 +35,19 @@
             wdx = 5;
             wdy = 7;
 
-            bg = p5.color(255, 250, 250); //#FFFBF3;
-            sd = p5.color(220, 220, 255); //#E7DDCB;
+            bg = p5.color("#17110D"); //255, 250, 250); //#FFFBF3;
+            sd = p5.color("#493121"); //220, 220, 255); //#E7DDCB;
         };
 
         p5.draw = () => {
             p5.background(bg);
-            let sSize = 0;
+            // renderWave();
 
+            let sSize = 0;
             wdx = 5 + p5.sin(p5.millis() / 5000.0);
             wdy = 7 + p5.tan(p5.millis() / 7000.0);
 
             p5.push();
-
             let count = 0;
             let time = p5.sin(p5.millis() / 1000.0);
             for (const s of shells) {
@@ -70,9 +67,11 @@
                     positions[count].z
                 );
                 p5.rotate(
-                    p5.sin(((paths[count].x * p5.millis()) / 1000) * 0.7)
+                    p5.sin(((paths[count].x * p5.millis()) / 1000) * 0.8)
                 );
-                renderShadow(s, 0, 0, sSize); 
+
+                let unit = cWidth / 6;
+                renderShadow(s, 0, 0, sSize);
                 renderShell(s, 0, 0, sSize);
                 p5.pop();
                 count++;
@@ -90,10 +89,42 @@
         };
 
         p5.keyTyped = () => {
-            if (p5.key === 's') {
-                p5.saveCanvas('myShell', 'png');
+            if (p5.key === "s") {
+                p5.saveCanvas("myShell", "png");
             }
         };
+
+        function renderWave() {
+            p5.fill(sd);
+            p5.stroke(sd);
+
+            let nDivs = 10;
+            let unit = cHeight / 10;
+
+            p5.push();
+            for (let k = 0; k < 10; k++) {
+                p5.beginShape();
+                p5.curveVertex(k * unit, -unit);
+                for (let i = 0; i < nDivs; i++) {
+                    p5.curveVertex(
+                        50 * p5.sin(i + unit + p5.millis() / 1000) +
+                            20 * p5.noise(i) +
+                            k * unit,
+                        i * unit
+                    );
+                }
+                for (let i = nDivs; i > 0; i--) {
+                    p5.curveVertex(
+                        50 * p5.sin(i + unit + p5.millis() / 1000) -
+                            20 * p5.noise(i) +
+                            k * unit,
+                        i * unit + p5.noise(i + 10)
+                    );
+                }
+                p5.endShape();
+            }
+            p5.pop();
+        }
 
         function renderShell(s, sx, sy, sSize) {
             let pts = s.retPoints();
@@ -132,7 +163,7 @@
             let wm = s.d;
 
             p5.push();
-            p5.translate(mx, my, -5);
+            p5.translate(mx + 5, my + 5, -5);
             for (let i = pts.length - 1; i >= 0; i--) {
                 //Size + Position
                 let theta = pts[i].theta;
@@ -168,7 +199,7 @@
                 b = p5.random(0.15, 0.2);
                 c = 1.2;
                 d = p5.random(0.4, 2);
-                l = p5.int(p5.map(b, 0.15, 0.3, 94, 50));
+                l = p5.int(p5.map(b, 0.15, 0.3, 90, 85));//94, 50));
                 let s = new Shell(a, b, c, d, l);
                 tShells.push(s);
             }
