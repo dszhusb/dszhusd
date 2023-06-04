@@ -95,7 +95,7 @@ export let projects = [
 export const projectContent = [//hardcoding structures is OK in the short term, but you should replace with a load from json/request
     { //DAISY
         key: "DSY",
-        pDescription: "A ",
+        pDescription: "Daisy is a music alteration device for casual listeners",
         pBlurbs: [
             "Concept Development, Prototyping",
             "Joseph Kim",
