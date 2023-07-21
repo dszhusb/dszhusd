@@ -1,6 +1,7 @@
 <!-- PROJECT PAGE TEMPLATE -->
 <script>
     import PHeader from "../components/PHeader.svelte";
+    import VideoPlayer from "../components/VideoPlayer.svelte";
     import {
         pageObj,
         cPage,
@@ -128,7 +129,10 @@
                     <!-- Images -->
                 {:else if cont[0] == 5}
                     <svelte:component this={cont[2].comp} />
-                    <p class="caption" style="text-align: center; margin-bottom:50px;">
+                    <p
+                        class="caption"
+                        style="text-align: center; margin-bottom:50px;"
+                    >
                         {cont[1]}
                     </p>
                 {:else if cont[0] == 4}
@@ -163,6 +167,8 @@
                     <p class="caption">
                         {cont[1]}
                     </p>
+                {:else if cont[0] == 6}
+                    <VideoPlayer url={cont[1]} pUrl={cont[2]}/>
                 {:else}
                     <img
                         src={cont[2]}
