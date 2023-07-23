@@ -4,7 +4,7 @@
     export let url;
     export let pUrl;
 
-    import { f3Color } from "../store"
+    import { f3Color } from "../store";
 
     let paused = true;
     let lastMouseDown;
@@ -34,17 +34,16 @@
     </video>
 
     {#if paused}
-    <div class="controls">
-        <div class="info">
-            <span style:color={$f3Color}>Click to Play</span>
+        <div class="controls">
+            <img src="../assets/play.png" alt="Play Button" />
         </div>
-    </div>
     {/if}
 </div>
 
 <style>
     div {
         position: relative;
+        margin: 80px 0 30px 0;
     }
 
     .video {
@@ -54,20 +53,19 @@
     }
 
     .controls {
-		position: absolute;
-		top: 0;
-		width: 100%;
-		transition: opacity 1s;
-	}
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        transition: opacity 1s;
+    }
 
-    .info {
-		display: flex;
-		width: 100%;
-		justify-content: space-between;
-	}
+    @media (max-width: 1000px) {
+        img {
+            width: 60px;
+        }
+    }
 
-	span {
-		padding: 2em 2em;
-		font-size: 1em;
-	}
 </style>

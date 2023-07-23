@@ -8,7 +8,7 @@
   </div>
   {#if $$slots.links}
     <div class="desc">
-      <div class="hRow" style="max-width: 850px;">
+      <div class="hRow">
         <div
           class="hCol"
           style="border-right: solid black 1px; background-color: #EEEEEE;"
@@ -51,6 +51,7 @@
 
   .hRow {
     display: flex;
+    max-width: 850px;
     column-gap: 36px;
   }
 
@@ -59,4 +60,10 @@
     font-size: 16px;
     font-weight: normal;
   }
+
+  @media (max-width: 1000px) {
+        .hRow {
+          display: block;
+        }
+    }
 </style>

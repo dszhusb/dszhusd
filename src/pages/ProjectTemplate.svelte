@@ -169,6 +169,9 @@
                     </p>
                 {:else if cont[0] == 6}
                     <VideoPlayer url={cont[1]} pUrl={cont[2]}/>
+                    <p class="caption">
+                        {cont[3]}
+                    </p>
                 {:else}
                     <img
                         src={cont[2]}
@@ -258,5 +261,8 @@
     }
 
     @media (max-width: 1000px) {
+        .contPara {
+            padding: 0 30px 0 30px;
+        }
     }
 </style>
