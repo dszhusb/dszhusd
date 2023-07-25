@@ -54,7 +54,7 @@
             </div>
             <div class="nav" id="linkCont">
                 <div class="bContainer">
-                    <a href="./assets/DanielZhuDesign.pdf" target="_blank">
+                    <a href="./assets/DanielZhu_072423.pdf" target="_blank">
                         <button
                             style="background-color:{'#373737'}; 
                             color:white">RESUME</button

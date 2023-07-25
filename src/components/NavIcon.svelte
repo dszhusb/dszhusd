@@ -8,7 +8,7 @@
 
     let bodies = [
         {
-            link: "./assets/navIcon/newbot.png",
+            link: "./assets/navIcon/newbotFam.png",
             x: 15,
             y: 5,
             dx: 0,//Math.random(-s1, s1),
