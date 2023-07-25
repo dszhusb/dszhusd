@@ -109,7 +109,7 @@ export const projectContent = [//hardcoding structures is OK in the short term, 
         cContent: [
             [6, "../assets/kinetic/smallKinetic.mp4", "../assets/kinetic/kineticCover.png", "Kinetic Fabrics Video"],
             [3, "PROJECT OVERVIEW"],
-            [0, "Through interactions that evoke analog nostalgia, listeners can add effects to augment their listening experience. Pulling out the flower-knob raises the volume, while adding a twist in the same motion applies an effect making music sound underwater with added rain and thunder, shifting its pitch octaves higher, or even simulating a vinyl record for a lofi feel."],
+            [0, "This project is a quick exploration into creating a space within a space. In crowded public spaces, we crave pockets of calm and isolation to grab a moment of peace. This project explores one way of carving out a space to rest through a screen that isolates sound and light with a timed curtain that moves at its own pace."],
         ]
     },
     { //DAISY
