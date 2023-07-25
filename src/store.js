@@ -17,13 +17,13 @@ import TakeShell from "./components/TakeShell.svelte";
 //PAGE VARIABLES
 export const cPage = writable("WRK");
 export const pageObj = derived(cPage, function ($cPage) {
-        for (let p of projects) {
-            if (p.key === $cPage) {
-                return p;
-            }
+    for (let p of projects) {
+        if (p.key === $cPage) {
+            return p;
         }
-    });
-    
+    }
+});
+
 export const pCat = derived(pageObj, $pageObj => $pageObj.cat);
 export const filters = writable([true, true, true]);
 export const fNotAll = derived(filters, $filters => $filters.includes(false));
@@ -75,12 +75,13 @@ let shells = [
 export let projects = [
     { name: "WORK", cat: 3, comp: Work, key: "WRK" },
     { name: "ABOUT", cat: 3, comp: About, key: "ABT" },
-    { name: "DAISY", cat: 0, img: "daisyNail.png", comp: ProjectTemplate, key: "DSY"},
+    { name: "DAISY", cat: 0, img: "daisyNail.png", comp: ProjectTemplate, key: "DSY" },
     { name: "TOBI", cat: 0, img: "tobiNail.jpg", comp: ProjectTemplate, key: "TBI" },
+    { name: "FAVORITE FOODS BY THE MONTH", cat: 0, img: "favoriteFoodsNail.png", comp: ProjectTemplate, key: "FFM" },
     { name: "HUMANIZING COMMENT SECTIONS", cat: 0, img: "hfiTn.png", comp: ProjectTemplate, key: "HFI" },
     { name: "SOMA", cat: 0, img: "somaNail.png", comp: ProjectTemplate, key: "SMA" },
-    { name: "FAVORITE FOODS BY THE MONTH", cat: 0, img: "favoriteFoodsNail.png", comp: ProjectTemplate, key: "FFM" },
     { name: "SKETCHBOOK", cat: 2, img: "sketchNail.png", comp: GalleryTemplate, key: "SBK" },
+    { name: "KINETIC FABRICS", cat: 0, img: "kineticNail.png", comp: ProjectTemplate, key: "CUR" },
     { name: "ORGANIC FORM FROM ARTIFICIAL RULES", cat: 1, img: "oAnail.png", comp: ProjectTemplate, key: "OFR" },
     { name: "PORTFOLIO WEBSITE", cat: 0, img: "folioNail.png", comp: Construction, key: "PWS" },
     { name: "DASH", cat: 0, img: "dashNail.png", comp: ProjectTemplate, key: "DSH" },
@@ -93,6 +94,24 @@ export let projects = [
 
 //Project Contents
 export const projectContent = [//hardcoding structures is OK in the short term, but you should replace with a load from json/request
+    { //DAISY
+        key: "CUR",
+        pDescription: "Daisy is a music alteration device for casual listeners",
+        pBlurbs: [
+            "Concept Development, Prototyping",
+            "Saloni Ghandi",
+            "6 weeks"
+        ],
+        links: [
+
+        ],
+        mImage: "../assets/kinetic/kineticBanner.png",
+        cContent: [
+            [6, "../assets/kinetic/smallKinetic.mp4", "../assets/kinetic/kineticCover.png", "Kinetic Fabrics Video"],
+            [3, "PROJECT OVERVIEW"],
+            [0, "Through interactions that evoke analog nostalgia, listeners can add effects to augment their listening experience. Pulling out the flower-knob raises the volume, while adding a twist in the same motion applies an effect making music sound underwater with added rain and thunder, shifting its pitch octaves higher, or even simulating a vinyl record for a lofi feel."],
+        ]
+    },
     { //DAISY
         key: "DSY",
         pDescription: "Daisy is a music alteration device for casual listeners",
@@ -225,11 +244,11 @@ export const projectContent = [//hardcoding structures is OK in the short term, 
             [3, "PROJECT OVERVIEW"],
             [0, "Scrolling down from the introduction page, visitors are presented a timeline of the months of the year with the trendiest foods of each month listed in descending order. Selecting a food expands the column to list specific recipes for that food. Along with a thumbnail and brief description, visitors are linked to the full recipe on NYT Cooking."],
             [0, "Our final result seeks to modify the relationship between the visitor and the act of looking for a recipe. For most of human history, people were limited to the ingredients grown in their location and at that time of year with the recipes passed down to them. Today, globalization has given us access to nearly any food in any season with millions of recipes on the internet. We now group food with categories like cuisine, healthiness, spiciness, and so on. To some degree, factors like seasonality and local availability have become more of a preference than a restriction. Favorite Foods by the Month seeks to highlight the seasonal, monthly, or even holiday based nature of food by centering the connection between food and time once more."],
-            [4, "Recipe Screencaps", ["../assets/favoriteFoods/ffbtmSC1.png","../assets/favoriteFoods/ffbtmSC3.png"], ["../assets/favoriteFoods/ffbtmSC2.png","../assets/favoriteFoods/ffbtmSC4.png"]],
+            [4, "Recipe Screencaps", ["../assets/favoriteFoods/ffbtmSC1.png", "../assets/favoriteFoods/ffbtmSC3.png"], ["../assets/favoriteFoods/ffbtmSC2.png", "../assets/favoriteFoods/ffbtmSC4.png"]],
             [3, "PROCESS OVERVIEW"],
             [0, "I was primarily involved in the concept building and development of Favorite Foods by the Month. Starting with the topic of food, we started by brainstorming the different ways we could visualize an interesting narrative. After a series of iterations, we eventually settled on a theme of time and seasonality. With that in mind, we began a cycle of iteration and feedback, eventually settling on a format of displaying a timeline of the most popular aggregated foods in each month."],
             [0, "From that point on, my primary role was in front end and backend development. On the backend side, we made use of node.js and express.js to access data from NYT API and Google Trends API for recipe data and popularity respectively. On the backend side, our primary challenge actually came from sourcing a list of foods to search with. We quickly realized it was extremely difficult to find a list of foods with the right level of specificity. Most lists we found were either extremely specific and limited, such as lists of a corporations products or nutritional in focus and too broad. To circumvent this issue, we used word processing on every NYT recipe to strip away descriptors and modifiers to create our own dataset. "],
-            [4, "Process Screencaps", ["../assets/favoriteFoods/ffbtmData.png","../assets/favoriteFoods/ffbtmCircles.png"], ["../assets/favoriteFoods/visualSystem.png","../assets/favoriteFoods/process.png"]],
+            [4, "Process Screencaps", ["../assets/favoriteFoods/ffbtmData.png", "../assets/favoriteFoods/ffbtmCircles.png"], ["../assets/favoriteFoods/visualSystem.png", "../assets/favoriteFoods/process.png"]],
             [3, "REFLECTION"],
             [0, "On the front end, we coded everything in the website with native HTML and CSS. Originally, we had planned to create embedded graphs and visualizations with p5.js canvases, however, feedback sessions with users showed that they produced more visual clutter than useful insight. Looking back on the process with my current knowledge, using a framework like react or svelte would have sped up the development and increased our options for interaction."],
             [0, "Working on Favorite Foods by The Months provided an interesting challenge from both the design and development perspectives. Iterating on the website's UI/UX, we sought to make the website as informative as possible at each stage without being overwhelming. On the development side, we learned to process data through API and to serve and display that data through the front and backend portions of a website."],
@@ -275,14 +294,14 @@ export const projectContent = [//hardcoding structures is OK in the short term, 
         cContent: [
             [2, "Organic Form, Artificial Rules is an ongoing exploration of generative design and making."],
             [4, "Early Shell Generation Exploration", ["../assets/organicArtificial/3D Shell-3.jpg"], ["../assets/organicArtificial/spiralConstruction.png"]],
-            [5, "Click for a new shell. Press 's' to save your own shell!", {comp: TakeShell}],
+            [5, "Click for a new shell. Press 's' to save your own shell!", { comp: TakeShell }],
             [3, "PROJECT OVERVIEW"],
             [0, "Starting as an inquiry into the mathematics behind the growth of sea shells, trees, and leaves, the theme of organic form emerging from the artificial rules has emerged again and again throughout my making process."],
             [0, "I've chosen to explore this theme through a six stage process: Identifying a pattern of growth in nature, exploring the mathematical principles behind it, investigating the pattern through a series of sketches, exploring its construction through code, generating a 3D model, and finally 3D printing, laser cutting, and or casting a physical model. Originally starting as a semester long process, this project has become an ongoing journey since."],
-            [4, "Sketch Explorations", ["../assets/organicArtificial/sketch1.jpeg", "../assets/organicArtificial/sketch2.jpeg"],["../assets/organicArtificial/sketch3.jpeg","../assets/organicArtificial/notes.jpeg"]],
+            [4, "Sketch Explorations", ["../assets/organicArtificial/sketch1.jpeg", "../assets/organicArtificial/sketch2.jpeg"], ["../assets/organicArtificial/sketch3.jpeg", "../assets/organicArtificial/notes.jpeg"]],
             [3, "PROCESS OVERVIEW"],
             [0, "Early on, there were two forms that interested me, the sea shell and voronoi pattern. Starting with raw form, I begin with a series of sketches and observations of the form itself. With this in mind, I looked into the formula behind the spiral of the shell and created a 2D shell generator in Processing that also sought to include some of the randomness involved in the growth of shells in the real world."],
-            [4, "Voronoi Exploration", ["../assets/organicArtificial/2dVoronoi.png"],["../assets/organicArtificial/3dVoronoi.JPG"]],
+            [4, "Voronoi Exploration", ["../assets/organicArtificial/2dVoronoi.png"], ["../assets/organicArtificial/3dVoronoi.JPG"]],
             [0, "From this 2D form, I picked a single shell and created a 3D model in Blender to 3D print, bringing it into the physical realm. With this 3D print, I created a series of negatives with silicone to produce moulds for material exploration. To complement the form and origin of the shell, I settled on using concrete and a mixture of silicone to recreate the shell. "],
             [4, "Early Shell Generation Exploration", ["../assets/organicArtificial/ShellsEarly1.gif"], ["../assets/organicArtificial/ShellsEarly2.gif"]],
             [3, "REFLECTION"],

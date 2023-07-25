@@ -26,9 +26,6 @@
 
 <div class="project">
     <!-- HEADER -->
-    <PHeader>
-        <div slot="description">{pDescription}</div>
-    </PHeader>
     {#if sWidth > 1200}
         <div class="dispContainer">
             <div class="dispImgContainer">
@@ -71,7 +68,7 @@
         text-align: center;
         position: relative;
 
-        background-color: #f6f6f6;
+        background-color: #000000;
         border: 0.5px black solid;
     }
 
@@ -103,11 +100,12 @@
     }
 
     .scrollBar {
-        height: 220px;
+        height: 100px;
         margin: 0;
         padding: 0;
 
-        border: 0.5px solid black;
+        border: 0.5px solid rgb(0, 0, 0);
+        background-color: #000000;
 
         scroll-snap-type: x mandatory;
         display: flex;
@@ -135,7 +133,7 @@
 
         opacity: 1;
         transition: 0.1s ease;
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(0, 0, 0, 0.5);
     }
 
     .overlay:hover {
