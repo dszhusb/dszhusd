@@ -77,13 +77,13 @@ export let projects = [
     { name: "ABOUT", cat: 3, comp: About, key: "ABT" },
     { name: "DAISY", cat: 0, img: "daisyNail.png", comp: ProjectTemplate, key: "DSY" },
     { name: "TOBI", cat: 0, img: "tobiNail.jpg", comp: ProjectTemplate, key: "TBI" },
+    { name: "PORTFOLIO WEBSITE", cat: 0, img: "folioNail.png", comp: ProjectTemplate, key: "PWS" },
     { name: "FAVORITE FOODS BY THE MONTH", cat: 0, img: "favoriteFoodsNail.png", comp: ProjectTemplate, key: "FFM" },
     { name: "HUMANIZING COMMENT SECTIONS", cat: 0, img: "hfiTn.png", comp: ProjectTemplate, key: "HFI" },
-    { name: "SOMA", cat: 0, img: "somaNail.png", comp: ProjectTemplate, key: "SMA" },
-    { name: "SKETCHBOOK", cat: 2, img: "sketchNail.png", comp: GalleryTemplate, key: "SBK" },
     { name: "KINETIC FABRICS", cat: 0, img: "kineticNail.png", comp: ProjectTemplate, key: "CUR" },
     { name: "ORGANIC FORM FROM ARTIFICIAL RULES", cat: 1, img: "oAnail.png", comp: ProjectTemplate, key: "OFR" },
-    { name: "PORTFOLIO WEBSITE", cat: 0, img: "folioNail.png", comp: Construction, key: "PWS" },
+    { name: "SKETCHBOOK", cat: 2, img: "sketchNail.png", comp: GalleryTemplate, key: "SBK" },
+    { name: "SOMA", cat: 0, img: "somaNail.png", comp: ProjectTemplate, key: "SMA" },
     { name: "DASH", cat: 0, img: "dashNail.png", comp: ProjectTemplate, key: "DSH" },
     { name: "LEAGUE OF LEGENDS DATA VISUALIZATION", cat: 1, img: "lolNail.png", comp: ProjectTemplate, key: "LDV" },
     { name: "DIGITAL ART", cat: 2, img: "artNail.png", comp: GalleryTemplate, key: "DRT" },
@@ -94,7 +94,7 @@ export let projects = [
 
 //Project Contents
 export const projectContent = [//hardcoding structures is OK in the short term, but you should replace with a load from json/request
-    { //DAISY
+    { //CUR
         key: "CUR",
         pDescription: "Daisy is a music alteration device for casual listeners",
         pBlurbs: [
@@ -315,14 +315,38 @@ export const projectContent = [//hardcoding structures is OK in the short term, 
         pBlurbs: [
             "UI/UX Design, Front/Backend Development",
             "N/A",
-            "3 weeks"
+            "Ongoing"
         ],
         links: [
-            "https://dandy-catcher-a71.notion.site/Favorite-Foods-By-The-Month-8fe21323bd3e422eb1f7cedf1439a521",
-            "https://dszhusb.github.io/CDT-Sandbox/",
+            "https://github.com/dszhusb/dszhusd"
         ],
-        mImage: "./assets/thumbnails/folioNail.png",
-        cContent: []
+        mImage: "./assets/site/portfolioBanner.png",
+        cContent: [
+            [2, "Welcome to my portfolio website! In these pages, I have assembled a collection of my work, but also a vision of how personality and interactivity on the internet could be."],
+            [4, "Project Thumbnails", ["../assets/thumbnails/daisyNail.png", "../assets/thumbnails/sketchNail.png"], ["../assets/thumbnails/favoriteFoodsNail.png", "../assets/thumbnails/computationNail.png"]],
+            [3, "PROJECT OVERVIEW"],
+            [0, "So, what's with this page? In many ways, this site has become a project in itself. As a designer, coder, and all around curious person, I took it upon myself years ago to slap together my own website and it's been growing and evolving since then."],
+            [0, "Starting with early figma prototypes and sketches, I iterated over a number of designs before implementing it in code. This site was built with Svelte.js on the frontend and deployed with Vercel. Interactive animations and assets were largely produced with Processing or p5.js and combine prerendered content with a live code."],
+            [0, "Along with being a showcase of my work, this site serves another agenda. One of my deeply held beliefs is that the web (where silly things like physics don't apply) should be filled with fun and character. With Processing, p5.js, and Svelte, I'm continuously exploring how this site can embody that sense of play :)"],
+            [4, "Major Site Iterations", ["../assets/site/v1.png", "../assets/site/v3.png"], ["../assets/site/v2.png", "../assets/site/v4.png"]],
+            [3, "PROCESS OVERVIEW"],
+            [0, "Over the course of the last few years, this site has gone through several major aesthetic overhauls. Early on I explored a skeumorphic desk-like interface, one that was near and dear to my heart. However, my techical skills at the time led me to abandon that concept at the time for a more standard and quickly implementable approach."],
+            [0, "As I was worked to build my aesthetic and technical capabilities, I gradually cycled through a few stock designs as I learned how to code with more advanced frameworks and developed an look and feel that I felt fit my personality. Fresh off the more abstract desk design, I decided to start with standard formats for readability and ease of understanding."],
+            [0, "Eventually as I gained more experience, I settled on the current visual style. Starting with a basic grid and templated system, I've gradually added more movement, color, and other bells and whistles. While each pages has become more dense and colorful, I've tried to keep the core legibility in mind, challenging my understanding of hierarchy and other design principles with dynamic colors, animations, and other content."],
+            [1, "Shell Assets", "../assets/site/shellOrg.png"],
+            [3, "WHAT'S UP WITH THE SHELLS?"],
+            [0, "Emerging out of my exploration from the project Organic Forms, Artificial Rules, I discovered a way of generating a content for consistent and interesting aesthetic that I felt would be perfect for branding my site."],
+            [0, "The shell motif first started when I picked up the book \"Theoretical Morphology\" by George R. McGhee Jr abandoned in a hallway at CMU. It presents a fascinating look into a mathematical perspective behind how the body plans of organisms can be modeled and predicted, both the plans that exist now but also ones that could theoretically exist had evolution nudged them in a slightly different way."],
+            [0, "Among the various discussions in the book, I was particularly struck by a chart of how shell shapes morph as you change the parameters behind the model behind their construction. Building off of the formula provided as well as making my own tweaks from my own experimentation and research, the first shell generator was born in Processing. I was fascinated with how a little randomness here and there in the parameters could produce such disperate shapes and sizes. Making a few changes for aesthetic purposes, I started adapting the generator for use in my website."],
+            [0, "Included above are twenty shells generated in processing which I played with to identify four colors: a primary, secondary, tertiary, and text highlight color. These twenty prerendered shells became visual building blocks for the site you see now with the colors and images associated with each shell providing the color palettes of the site."],
+            [1, "Planning 'About'", "../assets/site/about.png"],
+            [3, "PLANNING INTERACTIVITY"],
+            [0, "One of the unique challenges of working with interactive code has been conceptualizing, planning, and prototyping interactions that would only fully emerge in code. Above I've included a peek into the planning for one of these elements - the about page."],
+            [0, "I used a number of tricks to aid in the prototyping process. For example, before adapting the Processing code to p5.js I took screenshots of a processing prototype with different densities, background colors, and other placements to import into Figma to help me decide on the visual direction even without having a live version of the code. Because there aren't design prototyping tools with creative code, this type of website takes a lot of experimentation to develop a workflow and style that works for you."],
+            [4, "Development Process", ["../assets/site/dev.png", "../assets/site/figma.png"], ["../assets/site/svelte.png", "../assets/site/processing.png"]],
+            [3, "REFLECTION"],
+            [0, "Working on this portfolio websites has been one of my longest running exercises, improving my visual design and coding skills. I've had so much fun working on implementing fun ideas without any restriction and learning technical skills that have become applicable to other projects I'm working on. I am currently working to refine the site and rebuild the site with sveltekit to provide opportunities for more ideas that require more involved backend integrations."]
+        ],
     },
     { //DASH
         key: "DSH",
