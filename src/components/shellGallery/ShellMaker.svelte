@@ -41,7 +41,7 @@
 
         p5.setup = () => {
             //Setting up the Sketch
-            p5.colorMode("HSB", 255);
+            p5.colorMode("RGB", 255);
             p5.createCanvas(sWidth, sHeight, "P2D");
             p5.frameRate(20);
 
@@ -113,16 +113,25 @@
         }
 
         async function submitShell() {
+            //Processing Shell Data
+            shell.d = d;
+            shell.b = b;
+            shell.updateGen();
             let subShell = JSON.parse(JSON.stringify(shell));
             subShell.name = name;
             subShell.bc = bc.levels;
             subShell.fc = fc.levels;
             subShell.growth = subShell.growth.slice(0, l);
             subShell.l = l;
+
+            //Submit to Database
             const { error } = await supabase
                 .from("Shells")
                 .insert(subShell);
             console.log(error)
+
+            //Switch Scenes
+            handleSwitch();
         }
 
         function renderShell(s, sx, sy, sSize, isShadow) {
@@ -208,7 +217,7 @@
                 let x = a * p5.cos(theta) * p5.pow(2.718, b * theta);
                 let y = a * p5.sin(theta) * p5.pow(2.718, b * theta);
                 let disp = p5.dist(x, y, 0, 0);
-                let mc = p5.random(0, 1); //p5.lerpColor(this.bc, this.fc, p5.random(0, 1));
+                let mc = p5.random(0, 1);
                 let result = { theta, disp, mc };
                 return result;
             }
@@ -241,6 +250,16 @@
                 }
                 return pList;
             }
+
+            updateGen() {
+                for (let i=0; i<this.growth.length; i++) {
+                    let t = this.growth[i].theta;
+                    let x = a * p5.cos(t) * p5.pow(2.718, b * t);
+                    let y = a * p5.sin(t) * p5.pow(2.718, b * t);
+                    let disp = p5.dist(x, y, 0, 0);
+                    this.growth.disp = disp;
+                }
+            }
         }
 
         return { randomizeColor };
@@ -270,7 +289,7 @@
                 type="range"
                 bind:value={l}
                 min="70"
-                max="92"
+                max="87"
                 step="1"
             />
         </label>

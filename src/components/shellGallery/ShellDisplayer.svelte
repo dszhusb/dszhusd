@@ -44,7 +44,7 @@
 
         p5.setup = () => {
             //Setting up the Sketch
-            p5.colorMode("HSB", 255);
+            p5.colorMode("RGB", 255);
             p5.createCanvas(sWidth, sHeight, "P2D");
             p5.frameRate(20);
 
@@ -74,7 +74,7 @@
                 let p = p5.createVector(
                     p5.random(0, 1) * (sWidth - 200) + 100,
                     p5.random(0, 1) * (sHeight - 300) + 100,
-                    p5.random(-5, 0)
+                    p5.random(-5)
                 );
                 let pa = p5.createVector(p5.random(-1, 1), p5.random(0, 1));
                 positions.push(p);
@@ -116,7 +116,6 @@
                 p5.rotate(
                     p5.sin(((paths[count].x * p5.millis()) / 1000) * 0.5) * 0.5
                 );
-                renderShell(s, 0, 0, sSize, true);
                 renderShell(s, 0, 0, sSize, false);
 
                 p5.push();
@@ -187,7 +186,7 @@
             constructor(ia, ib, ic, id, mt, nm, gt, b, c) {
                 //Generating Colors
                 this.bc = p5.color(b[0], b[1], b[2]);
-                this.fc = p5.color(c[1], c[2], c[3]);
+                this.fc = p5.color(c[0], c[1], c[2]);
 
                 //Modifying Variables
                 this.a = ia; //
