@@ -113,17 +113,11 @@
                     positions[count].y + ry,
                     positions[count].z
                 );
+
                 p5.rotate(
                     p5.sin(((paths[count].x * p5.millis()) / 1000) * 0.5) * 0.5
                 );
                 renderShell(s, 0, 0, sSize, false);
-
-                p5.push();
-                p5.translate(-p5.textWidth(s.name) / 2, 10 + s.l * 1.2);
-                p5.noStroke();
-                p5.fill(255);
-                p5.text(s.name, 0, 0);
-                p5.pop();
 
                 p5.pop();
                 count++;
@@ -144,6 +138,13 @@
                 p5.translate(5, 5, -5);
             }
             p5.translate(mx, my);
+
+            // let sumTheta = 0;
+            // for (let i = 0; i < s.growth.length; i++) {
+            //     sumTheta += s.growth[i].theta;
+            // }
+            // p5.rotate(-sumTheta);
+
             for (let i = s.l - 1; i >= 0; i--) {
                 //Size + Position
                 let theta = pts[i].theta;
@@ -165,6 +166,19 @@
                 p5.translate(x, y);
                 p5.rotate(-p5.atan2(x, y));
                 p5.ellipse(0, 0, p * wm, 2 * p);
+
+                if (i == s.l - 18) {
+                    p5.push();
+                    p5.translate(
+                        -p5.textWidth(s.name) / 2,
+                        p * 2.25
+                    );
+                    p5.noStroke();
+                    p5.fill(255);
+                    p5.text(s.name, 0, 0);
+                    p5.pop();
+                }
+
                 p5.pop();
             }
             p5.pop();
