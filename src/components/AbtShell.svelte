@@ -1,6 +1,7 @@
 <!-- P5 Sketch -->
 <script>
     import P5 from "p5-svelte";
+    import { f3Color } from "../store.js";
 
     let cWidth;
     let cHeight;
@@ -232,8 +233,8 @@
     };
 </script>
 
-<svelte:window bind:outerWidth={cWidth} bind:outerHeight={cHeight}/>
+<svelte:window bind:outerHeight={cHeight}/>
 
-<div class="AbtShell" style="width: 100%; height: 100%;">
+<div class="AbtShell" style="width: 100%; height: 100%;" bind:clientWidth={cWidth}>
     <P5 {sketch} />
 </div>

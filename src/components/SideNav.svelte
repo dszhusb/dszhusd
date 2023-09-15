@@ -64,9 +64,9 @@
 
     let unique = {};
 
-	function transitionContent() {
-		unique = {};
-	}
+    function transitionContent() {
+        unique = {};
+    }
 </script>
 
 <div class="sidenav">
@@ -132,6 +132,15 @@
             style:background-color={$cPage === "ABT" ? "#373737" : "#EEEEEE"}
             style:color={$cPage === "ABT" ? "white" : "black"}
             class="section">ABOUT</button
+        >
+        <button
+            on:click={() => switchPage("SDP")}
+            style:background-color={$f3Color}
+            style:color={$hColor}
+            style:padding="0px"
+            style:font-size="12px"
+            style:height="30px"
+            class="section">MAKE YOUR OWN SHELL</button
         >
     </div>
     <div style="border-top: solid 0.5px black;" />

@@ -17,12 +17,6 @@
 		unique = {};
 	}
 
-	// routePkg.subscribe(() => {
-	// 	let url = $routePkg[0];
-	// 	let comp = $routePkg[1];
-	// 	router(url, () => page => comp);
-	// })
-
 	cPage.subscribe(() => {
 		updateContentComponent();
 		transitionContent();
@@ -65,7 +59,10 @@
 	<div class="content" style:margin={sWidth > 1000 ? "0 0 0 320px" : "0"}>
 		{#key unique}
 			<div transition:blur>
-				<svelte:component this={contentComponent} />
+				<svelte:component
+					this={contentComponent}
+					style="max-width:{sWidth - 320}"
+				/>
 			</div>
 		{/key}
 	</div>

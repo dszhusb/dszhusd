@@ -9,6 +9,8 @@ import Work from "./pages/Work.svelte";
 import About from "./pages/About.svelte";
 import ProjectTemplate from "./pages/ProjectTemplate.svelte";
 import GalleryTemplate from "./pages/GalleryTemplate.svelte";
+import ShellMaker from "./components/shellGallery/ShellMaker.svelte";
+import ShellDisplayer from "./components/shellGallery/ShellDisplayer.svelte";
 import Construction from "./pages/Construction.svelte";
 
 //Code Sketches
@@ -75,6 +77,8 @@ let shells = [
 export let projects = [
     { name: "WORK", cat: 3, comp: Work, key: "WRK" },
     { name: "ABOUT", cat: 3, comp: About, key: "ABT" },
+    { name: "SHELL MAKER", cat: 3, comp: ShellMaker, key: "SMK" },
+    { name: "SHELL GALLERY", cat: 3, comp: ShellDisplayer, key: "SDP"},
     { name: "DAISY", cat: 0, img: "daisyNail.png", comp: ProjectTemplate, key: "DSY" },
     { name: "TOBI", cat: 0, img: "tobiNail.jpg", comp: ProjectTemplate, key: "TBI" },
     { name: "PORTFOLIO WEBSITE", cat: 0, img: "folioNail.png", comp: ProjectTemplate, key: "PWS" },
@@ -96,7 +100,7 @@ export let projects = [
 export const projectContent = [//hardcoding structures is OK in the short term, but you should replace with a load from json/request
     { //CUR
         key: "CUR",
-        pDescription: "Daisy is a music alteration device for casual listeners",
+        pDescription: "Creating a private alcove in a public space",
         pBlurbs: [
             "Concept Development, Prototyping",
             "Saloni Ghandi",
@@ -120,13 +124,11 @@ export const projectContent = [//hardcoding structures is OK in the short term, 
             "Joseph Kim",
             "12 weeks"
         ],
-        links: [
-
-        ],
+        links: [],
         mImage: "../assets/daisy/Hero.png",
         cContent: [
             [2, "Daisy introduces a whole new mode of engaging with music. Bridging the gap between a listening device and a full electronic instrument, Daisy allows casual listeners to modify their listening experience."],
-            [6, "../assets/daisy/FijiBlue.mp4", "../assets/daisy/DaisyPoster.png", "Daisy Promotional Video"],
+            [6, "../assets/daisy/daisyDemo.mp4", "../assets/daisy/daisyDemoSC.png", "Daisy Prototype"],
             [3, "PROJECT OVERVIEW"],
             [0, "Through interactions that evoke analog nostalgia, listeners can add effects to augment their listening experience. Pulling out the flower-knob raises the volume, while adding a twist in the same motion applies an effect making music sound underwater with added rain and thunder, shifting its pitch octaves higher, or even simulating a vinyl record for a lofi feel."],
             [4, "Daisy Product Photos", ["../assets/daisy/gal1.jpg", "../assets/daisy/gal2.jpg", "../assets/daisy/gal3.jpg"], ["../assets/daisy/gal4.jpg", "../assets/daisy/gal5.jpg", "../assets/daisy/gal6.jpg"]],
@@ -138,6 +140,7 @@ export const projectContent = [//hardcoding structures is OK in the short term, 
             [0, "To achieve this level of refinement, we decided to stick to a simple concept and interaction to pursue an aggressive timeline, front-loading the brunt of the work. We knew that we would need to push ourselves out of our comfort zones into areas with a lot of questions and unknown variables. For example, creating frames for mounting electronic pieces with haptics in mind, programming with experimental software and microcontrollers and so much more. Fortunately, due to our planning, we were able to produce an minimum viable product in time to add a few bonus features as well."],
             [4, "Renders, Branding, and Transparent Views", ["../assets/daisy/construction.png", "../assets/daisy/render.png"], ["../assets/daisy/logo.png", "../assets/daisy/pcb.png"]],
             [0, "With the physical product complete, we hope to explore a digital marketplace supporting a community of makers and listeners in the future. In addition to traditional musical artists, this platform would afford a new type of “artist,” one that creates filters and effects. We hope this additional layer spawns new discussions, blurring the lines between what defines an artist and a consumer. This would position Daisy as more than just a one off device, allowing users to actively contribute to a kind of “performance” of the music specific to their experience effects and the music in that moment."],
+            [6, "../assets/daisy/FijiBlue.mp4", "../assets/daisy/DaisyPoster.png", "Daisy Promotional Video"],
             [6, "../assets/daisy/Assembly.mov", "../assets/daisy/AssemblyPoster.png", "Daisy Assembly"],
             [3, "REFLECTION"],
             [0, "Daisy! My favorite project at CMU. I loved exploring the dizzying field of electronic music and sound synthesis and puzzling at implementing theoretical effects in code. Thanks to the open prompt, we were able to dive into the technical guts of the project in the third week, allowing us to reach our first working prototype with weeks left to add extra features, refine any rough edges, and even design our own pcb! Functionality aside, my favorite aspect of this project by far was working with Joseph. From the chaotic stage of concept generation to seeing his beautiful renders in the final few weeks, each step of the process has been a joy to experience. The combination of our skill sets and personalities resulted in something I am so proud of and is hopefully just the beginning for a future of collaboration!"],
