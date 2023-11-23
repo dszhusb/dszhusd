@@ -61,7 +61,6 @@
 			<div transition:blur>
 				<svelte:component
 					this={contentComponent}
-					style="max-width:{sWidth - 320}"
 				/>
 			</div>
 		{/key}

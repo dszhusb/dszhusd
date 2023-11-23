@@ -90,7 +90,7 @@
         {/each}
         {#each dispN as d}
             <div class="imgContainer">
-                <img src="./assets/thumbnails/blankNail.png" alt="blank" />
+                <img src="./assets/thumbnails/blankNail.webp" alt="blank" />
             </div>
         {/each}
     </div>

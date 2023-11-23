@@ -105,12 +105,9 @@
                     time = p5.sin((p5.millis() - 200) / 1000.0);
                 }
 
-                let rx = time * paths[count].y * (wdx + time);
-                let ry = time * paths[count].y * (wdy + time);
-
                 p5.translate(
-                    positions[count].x + rx,
-                    positions[count].y + ry,
+                    positions[count].x,
+                    positions[count].y,
                     positions[count].z
                 );
 
@@ -127,6 +124,17 @@
             renderBorder();
         };
 
+        function calcPhysics() {
+            for (let i=0; i<shells.length; i++) {
+                for (let j=0; j<shells.length; j++) {
+                    Math.sqrt(Math.sq(positions[i].x - positions[j].x) + Math.sq(positions[i].y - positions[j].y))
+                    if (i != j && sqrt(sq(positions[i].x))) {
+                        void(0)
+                    }
+                }
+            }
+        }
+
         function renderShell(s, sx, sy, sSize, isShadow) {
             let pts = s.retPoints();
             let mx = sx + sSize / 2;
@@ -138,12 +146,6 @@
                 p5.translate(5, 5, -5);
             }
             p5.translate(mx, my);
-
-            // let sumTheta = 0;
-            // for (let i = 0; i < s.growth.length; i++) {
-            //     sumTheta += s.growth[i].theta;
-            // }
-            // p5.rotate(-sumTheta);
 
             for (let i = s.l - 1; i >= 0; i--) {
                 //Size + Position
