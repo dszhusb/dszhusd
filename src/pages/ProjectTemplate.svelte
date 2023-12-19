@@ -55,12 +55,13 @@
 
 <div class="project">
     <!-- MAIN IMAGE -->
-    <img
-        src={mImage}
-        alt="Prototype ScreenCap"
-        style="border-top: solid 0.5px black; 
-        border-bottom: solid 0.5px black;"
-    />
+    {#if mImage != ""}
+        <img
+            src={mImage}
+            alt="Prototype ScreenCap"
+            style="border-top: solid 0.5px black; border-bottom: solid 0.5px black;"
+        />
+    {/if}
 
     <!-- HEADER -->
     <PHeader>
@@ -116,7 +117,6 @@
                         style="
                             font-weight: bold; 
                             font-size: 20px;
-                            max-width: 600px;
                             margin-bottom: 80px;"
                     >
                         {cont[1]}
@@ -168,7 +168,7 @@
                         {cont[1]}
                     </p>
                 {:else if cont[0] == 6}
-                    <VideoPlayer url={cont[1]} pUrl={cont[2]}/>
+                    <VideoPlayer url={cont[1]} pUrl={cont[2]} />
                     <p class="caption">
                         {cont[3]}
                     </p>

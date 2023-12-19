@@ -80,8 +80,9 @@ export let projects = [
     { name: "SHELL MAKER", cat: 3, comp: ShellMaker, key: "SMK" },
     { name: "SHELL GALLERY", cat: 3, comp: ShellDisplayer, key: "SDP"},
     { name: "DAISY", cat: 0, img: "daisyNail.webp", comp: ProjectTemplate, key: "DSY" },
-    { name: "TOBI", cat: 0, img: "tobiNail.webp", comp: ProjectTemplate, key: "TBI" },
+    { name: "LIPPINCOTT", cat: 0, img: "lipNail.webp", comp: ProjectTemplate, key: "LIP" },
     { name: "PORTFOLIO WEBSITE", cat: 0, img: "folioNail.webp", comp: ProjectTemplate, key: "PWS" },
+    { name: "TOBI", cat: 0, img: "tobiNail.webp", comp: ProjectTemplate, key: "TBI" },
     { name: "FAVORITE FOODS BY THE MONTH", cat: 0, img: "favoriteFoodsNail.webp", comp: ProjectTemplate, key: "FFM" },
     // { name: "HUMANIZING COMMENT SECTIONS", cat: 0, img: "hfiTn.webp", comp: ProjectTemplate, key: "HFI" },
     { name: "KINETIC FABRICS", cat: 0, img: "kineticNail.webp", comp: ProjectTemplate, key: "CUR" },
@@ -145,6 +146,29 @@ export const projectContent = [//hardcoding structures is OK in the short term, 
             [3, "REFLECTION"],
             [0, "Daisy! My favorite project at CMU. I loved exploring the dizzying field of electronic music and sound synthesis and puzzling at implementing theoretical effects in code. Thanks to the open prompt, we were able to dive into the technical guts of the project in the third week, allowing us to reach our first working prototype with weeks left to add extra features, refine any rough edges, and even design our own pcb! Functionality aside, my favorite aspect of this project by far was working with Joseph. From the chaotic stage of concept generation to seeing his beautiful renders in the final few weeks, each step of the process has been a joy to experience. The combination of our skill sets and personalities resulted in something I am so proud of and is hopefully just the beginning for a future of collaboration!"],
             [1, "Daisy's Custom PCB", "../assets/daisy/Hero2.webp"],
+        ]
+    },
+    { //LIPPINCOTT
+        key: "LIP",
+        pDescription: "Designing and Developing at Lippincott",
+        pBlurbs: [
+            "Creative Technologist Intern",
+            "N/A",
+            "7 months"
+        ],
+        links: [],
+        mImage: "",
+        cContent: [
+            [2, "At Lippincott, I worked as a jack of all trades Creative Technologist: Unity VR Development, AI and Web development, as well as UI/UX and motion design. While the details of the projects are under NDA, a broad description follows below."],
+            [3, "VR Brandbook Project"],
+            [0, "I explored opportunites for brand and advertising through a VR brandbook and data visualization project. Based on Lippincott's work with a US major airline, we used a flight tracking API and airport datasets to tell a story about the airline's presence leading into a immersive brandbook showcasing Lippincott's work on the case."],
+            [3, "AI Web Tool"],
+            [0, "Emerging from a discussion with coworkers, I designed and developed a web-based tool leveraging AI to explore how generative AI can enhance Lippincott's core offerings. This tool was built with React.js, Flask, openAI APIs, and Stability API. The tool developed started out as a conversation starter or experiment but became polished enough to demo for clients and be deployed in Lippincott's internal network."],
+            [3, "Lippincott 'PLAY' Website"],
+            [0, "I was a developer for a soon to be released Lippincott website. I developed a set of custom motion components for the site's article pages with React.js and Framer.js. These components, based on scroll hijacking, break from a traditional article format, replacing it with a more interactive almost cinematic experience."],
+            [3, "UI/UX and Motion Design"],
+            [0, "Throughout my time at Lippincott I also played the role of a more traditional visual designer. Starting out, I designed mobile versions of web pages and double checked content for a client website before graduating to making design decisions on desktop web pages as well. I was late slotted into a web banner design project in the last two weeks of a project and picked up Google Web Designer on a short notice, polishing my motion design skills."],
+            [2, "Contact me to learn more about these projects."]
         ]
     },
     { //TOBI
