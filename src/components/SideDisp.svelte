@@ -34,9 +34,9 @@
                 <div class="backFill" style="background-color: black" />
             {/if}
             {#if $cPage == "WRK"}
-                <img src="./assets/navIcon/home.png" alt="Home" />
+                <img src="./assets/navIcon/home.webp" alt="Home" />
             {:else}
-                <img src="./assets/navIcon/back.png" alt="Page" />
+                <img src="./assets/navIcon/back.webp" alt="Page" />
             {/if}
         </div>
     </Hoverable>
@@ -44,7 +44,7 @@
         <p id="sideways">{pName}</p>
     </div>
     <div class="trinket" on:click={() => resetIcon()} style="margin-top: 10px;">
-        <img src="./image/{$hIcon}.png" alt="Home" />
+        <img src="./image/{$hIcon}.webp" alt="Home" />
         <div class="overlay" />
     </div>
     {#if clickVisible == true}
