@@ -78,10 +78,11 @@ export let projects = [
     { name: "WORK", cat: 3, comp: Work, key: "WRK" },
     { name: "ABOUT", cat: 3, comp: About, key: "ABT" },
     { name: "SHELL MAKER", cat: 3, comp: ShellMaker, key: "SMK" },
-    { name: "SHELL GALLERY", cat: 3, comp: ShellDisplayer, key: "SDP"},
+    { name: "SHELL GALLERY", cat: 3, comp: ShellDisplayer, key: "SDP" },
     { name: "DAISY", cat: 0, img: "daisyNail.webp", comp: ProjectTemplate, key: "DSY" },
     { name: "LIPPINCOTT", cat: 0, img: "lipNail.webp", comp: ProjectTemplate, key: "LIP" },
     { name: "PORTFOLIO WEBSITE", cat: 0, img: "folioNail.webp", comp: ProjectTemplate, key: "PWS" },
+    { name: "PICTOGEM", cat: 0, img: "pictoNail.webp", comp: ProjectTemplate, key: "PGM" },
     { name: "TOBI", cat: 0, img: "tobiNail.webp", comp: ProjectTemplate, key: "TBI" },
     { name: "FAVORITE FOODS BY THE MONTH", cat: 0, img: "favoriteFoodsNail.webp", comp: ProjectTemplate, key: "FFM" },
     // { name: "HUMANIZING COMMENT SECTIONS", cat: 0, img: "hfiTn.webp", comp: ProjectTemplate, key: "HFI" },
@@ -169,6 +170,23 @@ export const projectContent = [//hardcoding structures is OK in the short term, 
             [3, "UI/UX and Motion Design"],
             [0, "Throughout my time at Lippincott I also played the role of a more traditional visual designer. Starting out, I designed mobile versions of web pages and double checked content for a client website before graduating to making design decisions on desktop web pages as well. I was late slotted into a web banner design project in the last two weeks of a project and picked up Google Web Designer on a short notice, polishing my motion design skills."],
             [2, "Contact me to learn more about these projects."]
+        ]
+    },
+    { //Pictogem
+        key: "PGM",
+        pDescription: "A Digital Photo Album With a Twist",
+        pBlurbs: [
+            "Design, Development",
+            "N/A",
+            "4 weeks"
+        ],
+        links: ["https://github.com/dszhusb/photo-three-album", "https://photo-three-album.vercel.app/"],
+        mImage: "../assets/pictogem/pic.webp",
+        cContent: [
+            [2, "Pictogem is a gacha style photo album experienve. Each day, presenting a new photo rewards you with time capsules from the past, previous pictures mapped onto the shapes of flickering cubes, jelly-like droplets, and more!"],
+            [3, "PROJECT OVERVIEW"],
+            [0, "Wrapping an image around a 3D form can distort the image in strange and unintended wways. But instead of viewing resulting bulges and seams as a mistake, the distortions can be a source of delight! Pictogem ignores a lesson in UV mapping, casting a common mistake as the central source of novelty. The challenge becomes manipulating shape and material in ways that refresh old memories with new life instead of reading as a mistake."],
+            [0, "This project is built with React, three.js, React Three Fiber, and more. It is a first foray into developing 3D experiences for web, shaders, as well as an exercise in my graphic design and UI skills. I hope you enjoy the prototype!"],
         ]
     },
     { //TOBI
