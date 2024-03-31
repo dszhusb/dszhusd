@@ -1,7 +1,7 @@
 <!-- ABOUT PAGE -->
 <script>
     import { hColor, f1Color, f2Color, f3Color } from "../store.js";
-    import PHeader from "../components/PHeader.svelte"
+    import PHeader from "../components/PHeader.svelte";
     import AbtShell from "../components/AbtShell.svelte";
 
     let windowWidth;
@@ -13,7 +13,7 @@
             <AbtShell />
             <div id="circle" />
             <img
-                style="position: absolute; height: 500px; top: -12px; left: 12px;"
+                style="position: absolute; height: 1000px; bottom: 0; left: 50%; transform: translateX(-50%);"
                 src="./assets/about/narrowDan.png"
                 alt="Daniel Zhu"
             />
@@ -85,56 +85,58 @@
             </div>
         </div>
     {:else}
-    <PHeader>
-        <div slot="description">HI! I'M DANIEL ZHU.</div>
-    </PHeader>
-    <div class="row">
-        <div class="column">
-            <img src="./assets/about/narrowDan1.png" alt="Daniel Zhu" />
-        </div>
-        <div class="column" id="txt">
-            <div id="aboutP">
-                I'm a fourth year designer and creative technologist studying
-                <a
-                    style="--hColor: {$hColor};"
-                    href="https://design.cmu.edu/content/environments-1"
-                    >Environments Design</a
-                >,
-                <a style="--hColor: {$hColor};" href="https://www.hcii.cmu.edu/"
-                    >HCI</a
-                >, and
-                <a
-                    style="--hColor: {$hColor};"
-                    href="https://ideate.cmu.edu/undergraduate-programs/physical-computing/"
-                    >Physical Computing</a
-                >, at Carnegie Mellon University. I enjoy blurring the line
-                between digital and physical experiences through electronics and
-                code.
+        <PHeader>
+            <div slot="description">HI! I'M DANIEL ZHU.</div>
+        </PHeader>
+        <div class="row">
+            <div class="column">
+                <img src="./assets/about/narrowDan1.png" alt="Daniel Zhu" />
             </div>
-            <div class="links">
-                <a
-                    style="--hColor: {$hColor};"
-                    href="./assets/DanielZhuDesign.pdf"
-                    target="_blank">RESUME</a
-                >
-                <a
-                    style="--hColor: {$hColor};"
-                    href="http://www.linkedin.com/in/danielszhu"
-                    target="_blank">LINKEDIN</a
-                >
-                <a
-                    style="--hColor: {$hColor};"
-                    href="https://github.com/dszhusb"
-                    target="_blank">GITHUB</a
-                >
-                <a
-                    style="--hColor: {$hColor};"
-                    href="mailto: dszhu@andrew.cmu.edu"
-                    target="_blank">EMAIL</a
-                >
+            <div class="column" id="txt">
+                <div id="aboutP">
+                    I'm a fourth year designer and creative technologist
+                    studying
+                    <a
+                        style="--hColor: {$hColor};"
+                        href="https://design.cmu.edu/content/environments-1"
+                        >Environments Design</a
+                    >,
+                    <a
+                        style="--hColor: {$hColor};"
+                        href="https://www.hcii.cmu.edu/">HCI</a
+                    >, and
+                    <a
+                        style="--hColor: {$hColor};"
+                        href="https://ideate.cmu.edu/undergraduate-programs/physical-computing/"
+                        >Physical Computing</a
+                    >, at Carnegie Mellon University. I enjoy blurring the line
+                    between digital and physical experiences through electronics
+                    and code.
+                </div>
+                <div class="links">
+                    <a
+                        style="--hColor: {$hColor};"
+                        href="./assets/DanielZhu.pdf"
+                        target="_blank">RESUME</a
+                    >
+                    <a
+                        style="--hColor: {$hColor};"
+                        href="http://www.linkedin.com/in/danielszhu"
+                        target="_blank">LINKEDIN</a
+                    >
+                    <a
+                        style="--hColor: {$hColor};"
+                        href="https://github.com/dszhusb"
+                        target="_blank">GITHUB</a
+                    >
+                    <a
+                        style="--hColor: {$hColor};"
+                        href="mailto: dszhu@andrew.cmu.edu"
+                        target="_blank">EMAIL</a
+                    >
+                </div>
             </div>
         </div>
-    </div>
     {/if}
 </main>
 
@@ -214,13 +216,14 @@
 
     #circle {
         position: absolute;
-        width: 260px;
-        height: 260px;
-        top: 88px;
-        left: 57px;
+        width: 500px;
+        height: 500px;
+        bottom: 100px;
+        left: 50%;
+        transform: translate(-50%, -50%);
 
         border: 1px solid black;
-        border-radius: 130px;
+        border-radius: 250px;
         background-color: white;
     }
 
