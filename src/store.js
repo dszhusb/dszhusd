@@ -160,7 +160,7 @@ export const projectContent = [//hardcoding structures is OK in the short term, 
         mImage: "../assets/thumbnails/pilotNail.webp",
         cContent: [
             [2, "The Pilot Semi-Truck Simulator was an immersive experience built for the 2024 Berkshire Hathaway Shareholder Conference. By hacking into the controls of a real semi-truck we were able to convert the truck into an input game controller for a modified trucking simulator game. Participants we guided through a set course by an instructor, allowing them to experience to feeling of driving a real big rig truck complete with haptic feedback, an immersive spreen setup, and more."],
-            [7, "../assets/pilot/pilot-trailer-min.mp4", "Pilot Event Reel"],
+            [7, "4FG9xUcryY8", "Pilot Event Reel"],
             [3, "PROJECT OVERVIEW"],
             [0, "I worked as a creative technologist on this project with Nishanth Samala a car enthusiast who had developed a similar system for his car. There were three major components. First a microcontroller decoding the truck's communication through the diagnostic port through the J1939 protocol, a microcontroller reading dashboard information like engine speed and road speed to send back to the truck, and a separate GPS system implemented mostly by Bryce Li. You can find the code linked under \"process documentation\" above."],
             [0, "Although I will be talking mostly about the technology for this project, I quickly found my role expanding beyond just developing hardware to production, event planning, and more."],
