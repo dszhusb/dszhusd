@@ -2,6 +2,7 @@
 <script>
     import PHeader from "../components/PHeader.svelte";
     import VideoPlayer from "../components/VideoPlayer.svelte";
+    import Youtube from "svelte-youtube-embed";
     import {
         pageObj,
         cPage,
@@ -171,6 +172,11 @@
                     <VideoPlayer url={cont[1]} pUrl={cont[2]} />
                     <p class="caption">
                         {cont[3]}
+                    </p>
+                {:else if cont[0] == 7}
+                    <Youtube id={cont[1]} />
+                    <p class="caption">
+                        {cont[2]}
                     </p>
                 {:else}
                     <img
