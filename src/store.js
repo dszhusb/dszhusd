@@ -11,7 +11,7 @@ import ProjectTemplate from "./pages/ProjectTemplate.svelte";
 import GalleryTemplate from "./pages/GalleryTemplate.svelte";
 import ShellMaker from "./components/shellGallery/ShellMaker.svelte";
 import ShellDisplayer from "./components/shellGallery/ShellDisplayer.svelte";
-import Construction from "./pages/Construction.svelte";
+// import Construction from "./pages/Construction.svelte";
 
 //Code Sketches
 import TakeShell from "./components/TakeShell.svelte";
@@ -82,6 +82,7 @@ export let projects = [
     { name: "DAISY", cat: 0, img: "daisyNail.webp", comp: ProjectTemplate, key: "DSY" },
     { name: "PILOT SEMI-TRUCK SIMULATOR", cat: 0, img: "pilotNail.webp", comp: ProjectTemplate, key: "PLT"},
     { name: "LIPPINCOTT", cat: 0, img: "lipNail.webp", comp: ProjectTemplate, key: "LIP" },
+    { name: "GENERATIVE ORGANIC FORMS", cat: 0, img: "genNail.webp", comp: ProjectTemplate, key: "GEN"},
     { name: "PORTFOLIO WEBSITE", cat: 0, img: "folioNail.webp", comp: ProjectTemplate, key: "PWS" },
     { name: "PICTOGEM", cat: 0, img: "pictoNail.webp", comp: ProjectTemplate, key: "PGM" },
     { name: "TOBI", cat: 0, img: "tobiNail.webp", comp: ProjectTemplate, key: "TBI" },
@@ -198,6 +199,22 @@ export const projectContent = [//hardcoding structures is OK in the short term, 
             [3, "REFLECTION"],
             [0, "On a technical experience, I learned so much from the project, especially in terms of creating hardware for live experiences. Nishanth taught me a lot regarding coding practices, especially with microcontrollers and backend web practices. I also had a chance to polish my skills with 3D printing, PCB design, etc."],
             [0, "More importantly I had my first experience working in the immersive experience space from start to end. I learned how to communicate with the agency and clients, how to make judgements between technical solutions, and what it's like to run the tech at the actual event. The soft skills I was able to work on boosted my confidence in my ability to thrive in the chaotic and sometimes stressful immersive experience space."]
+        ]
+    },
+    { //GEN
+        key: "GEN",
+        pDescription: "Daisy is a music alteration device for casual listeners",
+        pBlurbs: [
+            "Concept Development, Prototyping",
+            "",
+            "1 week"
+        ],
+        links: ["https://github.com/dszhusb/generative-morphology", "https://generative-morphology.vercel.app/parametricMesh"],
+        mImage: "../assets/thumbnails/genNail.webp",
+        cContent: [
+            [2, "Generative Organic Forms is a site inspired by the book Theoretical Morphology by David Raup. This site hosts a number models for various forms described in the book and serves as a playful tool for form generation and a learning experiment."],
+            [3, "PROJECT OVERVIEW"],
+            [0, "Visit the website linked above."],
         ]
     },
     { //LIPPINCOTT
